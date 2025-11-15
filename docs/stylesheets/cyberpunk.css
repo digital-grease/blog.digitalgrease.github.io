@@ -1,67 +1,94 @@
 /* Cyberpunk Theme - Dark Mode Enhancements */
 
 :root {
-  /* Noir Cyberpunk Color Palette - Darker & Muted */
-  --cyber-cyan: #00cccc;
-  --cyber-magenta: #cc00cc;
-  --cyber-pink: #ff1493;
-  --cyber-green: #00cc33;
-  --cyber-purple: #9d00ff;
-  --cyber-blue: #0080ff;
-  --cyber-orange: #ff6600;
-  --cyber-dark: #000000;
-  --cyber-darker: #000000;
-  --cyber-gray: #0a0a0a;
-  --cyber-medium-dark: #111111;
-
-  /* Forge Fire Colors */
+  /* PRIMARY: Forge Fire Colors */
   --forge-hot: #ff3300;
   --forge-orange: #ff6600;
   --forge-yellow: #ffcc66;
   --forge-white: #fffacd;
+  --forge-red: #cc0000;
+  --forge-amber: #ff9933;
 
-  /* Subtle Neon Glow Effects - More Noir */
-  --neon-cyan-glow: 0 0 3px rgba(0, 204, 204, 0.5), 0 0 6px rgba(0, 204, 204, 0.3), 0 0 9px rgba(0, 204, 204, 0.2);
-  --neon-magenta-glow: 0 0 3px rgba(204, 0, 204, 0.5), 0 0 6px rgba(204, 0, 204, 0.3), 0 0 9px rgba(204, 0, 204, 0.2);
-  --neon-green-glow: 0 0 3px rgba(0, 204, 51, 0.5), 0 0 6px rgba(0, 204, 51, 0.3), 0 0 9px rgba(0, 204, 51, 0.2);
-  --forge-glow: 0 0 10px rgba(255, 102, 0, 0.4), 0 0 20px rgba(255, 102, 0, 0.2), 0 0 30px rgba(255, 51, 0, 0.1);
+  /* ACCENT: Cyberpunk Colors (secondary) */
+  --cyber-cyan: #00cccc;
+  --cyber-magenta: #cc00cc;
+  --cyber-green: #00cc33;
+
+  /* Forge Dark Tones */
+  --forge-dark: #1a0a00;
+  --forge-darker: #0d0500;
+  --forge-charcoal: #2a1a0a;
+  --forge-soot: #0a0503;
+
+  /* PRIMARY: Forge Glow Effects */
+  --forge-glow: 0 0 10px rgba(255, 102, 0, 0.6), 0 0 20px rgba(255, 51, 0, 0.4), 0 0 30px rgba(255, 51, 0, 0.2);
+  --forge-intense-glow: 0 0 15px rgba(255, 102, 0, 0.8), 0 0 30px rgba(255, 51, 0, 0.6), 0 0 45px rgba(255, 51, 0, 0.4);
+  --heat-glow: 0 0 20px rgba(255, 204, 102, 0.5), 0 0 40px rgba(255, 153, 51, 0.3);
+
+  /* ACCENT: Subtle Cyber Glow (toned down) */
+  --cyber-glow: 0 0 3px rgba(0, 204, 204, 0.3), 0 0 6px rgba(0, 204, 204, 0.2);
 }
 
 /* Override Material Theme Dark Background */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color: var(--cyber-darker);
-  --md-default-fg-color: #e0e0e0;
-  --md-code-bg-color: var(--cyber-dark);
-  --md-code-fg-color: var(--cyber-cyan);
-  --md-accent-fg-color: var(--cyber-cyan);
-  --md-primary-fg-color: var(--cyber-darker);
+  --md-default-bg-color: var(--forge-darker);
+  --md-default-fg-color: #ffcc99;
+  --md-code-bg-color: var(--forge-dark);
+  --md-code-fg-color: var(--forge-amber);
+  --md-accent-fg-color: var(--forge-orange);
+  --md-primary-fg-color: var(--forge-darker);
 }
 
-/* Body Background - Pure Noir Black */
+/* Body Background - Forge Atmosphere */
 body {
-  background: #000000;
+  background: linear-gradient(
+    180deg,
+    var(--forge-soot) 0%,
+    var(--forge-darker) 40%,
+    var(--forge-dark) 80%,
+    rgba(255, 51, 0, 0.1) 100%
+  );
   background-attachment: fixed;
+  position: relative;
+}
+
+/* Forge Floor Glow */
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(255, 102, 0, 0.3) 0%,
+    rgba(255, 51, 0, 0.2) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Header Styling */
 .md-header {
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(26, 10, 0, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 204, 204, 0.5);
-  box-shadow: 0 0 10px rgba(0, 204, 204, 0.2);
+  border-bottom: 2px solid rgba(255, 102, 0, 0.6);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.3), inset 0 -2px 10px rgba(255, 51, 0, 0.2);
 }
 
 .md-header__title {
   font-weight: 700;
-  color: var(--cyber-cyan);
-  text-shadow: var(--neon-cyan-glow);
+  color: var(--forge-orange);
+  text-shadow: var(--forge-glow);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 /* Navigation Links */
 .md-tabs__link {
-  color: var(--cyber-cyan);
+  color: var(--forge-amber);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -69,13 +96,14 @@ body {
 }
 
 .md-tabs__link:hover {
-  color: var(--cyber-magenta);
-  text-shadow: var(--neon-magenta-glow);
+  color: var(--forge-yellow);
+  text-shadow: var(--heat-glow);
 }
 
 .md-tabs__link--active {
-  color: var(--cyber-magenta);
-  border-bottom: 2px solid var(--cyber-magenta);
+  color: var(--forge-orange);
+  border-bottom: 2px solid var(--forge-orange);
+  box-shadow: 0 2px 10px rgba(255, 102, 0, 0.4);
 }
 
 /* Main Content Area */
@@ -84,41 +112,47 @@ body {
 }
 
 .md-main__inner {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(26, 10, 0, 0.7);
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 204, 204, 0.15);
+  border: 1px solid rgba(255, 102, 0, 0.3);
   border-radius: 8px;
   margin-top: 1rem;
+  box-shadow: 0 0 30px rgba(255, 102, 0, 0.15), inset 0 0 40px rgba(255, 51, 0, 0.05);
 }
 
-/* Typography */
+/* Typography - Heated Metal */
 .md-typeset h1 {
-  color: var(--cyber-cyan);
-  text-shadow: var(--neon-cyan-glow);
-  border-bottom: 2px solid var(--cyber-cyan);
+  color: var(--forge-orange);
+  text-shadow: var(--forge-intense-glow);
+  border-bottom: 3px solid var(--forge-hot);
   padding-bottom: 0.5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--forge-hot) 0%, var(--forge-orange) 50%, var(--forge-yellow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .md-typeset h2 {
-  color: var(--cyber-magenta);
-  text-shadow: 0 0 10px var(--cyber-magenta);
+  color: var(--forge-amber);
+  text-shadow: var(--forge-glow);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
 .md-typeset h3 {
-  color: var(--cyber-green);
-  text-shadow: 0 0 8px var(--cyber-green);
+  color: var(--forge-yellow);
+  text-shadow: 0 0 10px rgba(255, 204, 102, 0.6);
 }
 
 .md-typeset h4,
 .md-typeset h5,
 .md-typeset h6 {
-  color: var(--cyber-cyan);
+  color: var(--forge-amber);
+  text-shadow: var(--forge-glow);
 }
 
 /* Links */
@@ -130,240 +164,258 @@ body {
 }
 
 .md-typeset a:hover {
-  color: var(--cyber-magenta);
-  border-bottom: 1px solid var(--cyber-magenta);
-  text-shadow: 0 0 5px var(--cyber-magenta);
+  color: var(--forge-orange);
+  border-bottom: 1px solid var(--forge-orange);
+  text-shadow: var(--forge-glow);
 }
 
 /* Code Blocks */
 .md-typeset code {
-  background-color: var(--cyber-dark);
-  color: var(--cyber-green);
-  border: 1px solid rgba(0, 255, 65, 0.3);
+  background-color: rgba(26, 10, 0, 0.8);
+  color: var(--forge-amber);
+  border: 1px solid rgba(255, 153, 51, 0.4);
   padding: 0.2em 0.4em;
   border-radius: 3px;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.2);
 }
 
 .md-typeset pre {
-  background-color: var(--cyber-dark);
-  border: 1px solid var(--cyber-cyan);
+  background-color: var(--forge-dark);
+  border: 1px solid rgba(255, 102, 0, 0.4);
   border-radius: 6px;
-  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
+  box-shadow: inset 0 0 20px rgba(255, 51, 0, 0.15), 0 0 15px rgba(255, 102, 0, 0.2);
 }
 
 .md-typeset pre code {
   background-color: transparent;
   border: none;
-  color: var(--cyber-green);
-  text-shadow: 0 0 2px var(--cyber-green);
+  color: var(--forge-yellow);
+  text-shadow: 0 0 3px rgba(255, 204, 102, 0.5);
 }
 
-/* Buttons */
+/* Buttons - Forged Metal */
 .md-button {
-  background-color: transparent;
-  color: var(--cyber-cyan);
-  border: 2px solid var(--cyber-cyan);
-  box-shadow: var(--neon-cyan-glow);
+  background: linear-gradient(135deg, rgba(255, 102, 0, 0.2), rgba(255, 51, 0, 0.1));
+  color: var(--forge-orange);
+  border: 2px solid var(--forge-orange);
+  box-shadow: var(--forge-glow), inset 0 0 10px rgba(255, 102, 0, 0.1);
   transition: all 0.3s ease;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .md-button:hover {
-  background-color: var(--cyber-cyan);
-  color: var(--cyber-darker);
-  box-shadow: 0 0 20px var(--cyber-cyan);
+  background: linear-gradient(135deg, var(--forge-orange), var(--forge-hot));
+  color: var(--forge-darker);
+  box-shadow: var(--forge-intense-glow);
+  border-color: var(--forge-yellow);
 }
 
 .md-button--primary {
-  background-color: var(--cyber-cyan);
-  color: var(--cyber-darker);
-  border: 2px solid var(--cyber-cyan);
+  background: linear-gradient(135deg, var(--forge-orange), var(--forge-hot));
+  color: var(--forge-darker);
+  border: 2px solid var(--forge-yellow);
+  box-shadow: var(--forge-intense-glow);
 }
 
 .md-button--primary:hover {
-  background-color: var(--cyber-magenta);
-  border-color: var(--cyber-magenta);
-  box-shadow: var(--neon-magenta-glow);
+  background: linear-gradient(135deg, var(--forge-yellow), var(--forge-orange));
+  border-color: var(--forge-white);
+  box-shadow: var(--heat-glow);
 }
 
 /* Search */
 .md-search__input {
-  background-color: var(--cyber-dark);
-  border: 1px solid var(--cyber-cyan);
-  color: var(--cyber-cyan);
+  background-color: var(--forge-dark);
+  border: 1px solid rgba(255, 102, 0, 0.5);
+  color: var(--forge-amber);
 }
 
 .md-search__input::placeholder {
-  color: rgba(0, 255, 255, 0.5);
+  color: rgba(255, 153, 51, 0.5);
 }
 
 .md-search__input:focus {
-  box-shadow: var(--neon-cyan-glow);
+  box-shadow: var(--forge-glow);
+  border-color: var(--forge-orange);
 }
 
-/* Blog Post Cards */
+/* Blog Post Cards - Hot Metal Plates */
 .md-typeset article {
-  background: rgba(17, 17, 17, 0.6);
-  border: 1px solid rgba(0, 204, 204, 0.2);
+  background: linear-gradient(135deg, rgba(42, 26, 10, 0.8), rgba(26, 10, 0, 0.6));
+  border: 2px solid rgba(255, 102, 0, 0.3);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
   transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.1), inset 0 0 30px rgba(255, 51, 0, 0.05);
 }
 
 .md-typeset article:hover {
-  border-color: var(--cyber-magenta);
-  box-shadow: 0 0 15px rgba(204, 0, 204, 0.2);
+  border-color: var(--forge-orange);
+  box-shadow: 0 0 30px rgba(255, 102, 0, 0.4), inset 0 0 40px rgba(255, 51, 0, 0.1);
   transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(42, 26, 10, 0.9), rgba(26, 10, 0, 0.7));
 }
 
-/* Tags */
+/* Tags - Forge Brands */
 .md-tag {
-  background-color: transparent;
-  color: var(--cyber-magenta);
-  border: 1px solid var(--cyber-magenta);
+  background: linear-gradient(135deg, rgba(255, 51, 0, 0.2), rgba(255, 102, 0, 0.1));
+  color: var(--forge-orange);
+  border: 1px solid var(--forge-orange);
   border-radius: 4px;
   padding: 0.2em 0.5em;
   font-size: 0.75em;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
 }
 
 .md-tag:hover {
-  background-color: var(--cyber-magenta);
-  color: var(--cyber-darker);
-  box-shadow: 0 0 10px var(--cyber-magenta);
+  background: linear-gradient(135deg, var(--forge-orange), var(--forge-hot));
+  color: var(--forge-darker);
+  box-shadow: var(--forge-glow);
 }
 
 /* Admonitions */
 .md-typeset .admonition {
-  border-left: 4px solid var(--cyber-cyan);
-  background: rgba(0, 255, 255, 0.1);
+  border-left: 4px solid var(--forge-orange);
+  background: linear-gradient(90deg, rgba(255, 102, 0, 0.15), rgba(255, 102, 0, 0.05));
   border-radius: 4px;
 }
 
 .md-typeset .admonition-title {
-  background: rgba(0, 255, 255, 0.2);
+  background: rgba(255, 102, 0, 0.25);
   border: none;
-  color: var(--cyber-cyan);
+  color: var(--forge-orange);
   font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 102, 0, 0.5);
 }
 
 .md-typeset .admonition.warning {
-  border-left-color: var(--cyber-orange);
-  background: rgba(255, 102, 0, 0.1);
+  border-left-color: var(--forge-yellow);
+  background: linear-gradient(90deg, rgba(255, 204, 102, 0.15), rgba(255, 204, 102, 0.05));
 }
 
 .md-typeset .admonition.warning .admonition-title {
-  background: rgba(255, 102, 0, 0.2);
-  color: var(--cyber-orange);
+  background: rgba(255, 204, 102, 0.25);
+  color: var(--forge-yellow);
 }
 
 .md-typeset .admonition.danger {
-  border-left-color: var(--cyber-pink);
-  background: rgba(255, 20, 147, 0.1);
+  border-left-color: var(--forge-hot);
+  background: linear-gradient(90deg, rgba(255, 51, 0, 0.2), rgba(255, 51, 0, 0.05));
 }
 
 .md-typeset .admonition.danger .admonition-title {
-  background: rgba(255, 20, 147, 0.2);
-  color: var(--cyber-pink);
+  background: rgba(255, 51, 0, 0.3);
+  color: var(--forge-hot);
+  text-shadow: 0 0 10px rgba(255, 51, 0, 0.6);
 }
 
 /* Sidebar */
 .md-sidebar {
-  background: rgba(0, 0, 0, 0.9);
-  border-right: 1px solid rgba(0, 204, 204, 0.15);
+  background: rgba(26, 10, 0, 0.9);
+  border-right: 2px solid rgba(255, 102, 0, 0.2);
+  box-shadow: 2px 0 15px rgba(255, 102, 0, 0.1);
 }
 
 .md-nav__link {
-  color: #e0e0e0;
+  color: #ffcc99;
   transition: all 0.3s ease;
 }
 
 .md-nav__link:hover {
-  color: var(--cyber-cyan);
-  text-shadow: 0 0 5px var(--cyber-cyan);
+  color: var(--forge-orange);
+  text-shadow: var(--forge-glow);
 }
 
 .md-nav__link--active {
-  color: var(--cyber-magenta);
+  color: var(--forge-yellow);
   font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 204, 102, 0.5);
 }
 
 /* Footer */
 .md-footer {
-  background-color: var(--cyber-darker);
-  border-top: 1px solid var(--cyber-cyan);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  background: linear-gradient(180deg, var(--forge-darker), var(--forge-soot));
+  border-top: 2px solid var(--forge-orange);
+  box-shadow: 0 -2px 20px rgba(255, 102, 0, 0.3);
 }
 
 .md-footer-meta {
-  background-color: rgba(5, 7, 20, 0.95);
+  background-color: rgba(13, 5, 0, 0.95);
 }
 
-/* Scrollbar */
+/* Scrollbar - Heated Metal */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cyber-darker);
-  border: 1px solid rgba(0, 255, 255, 0.1);
+  background: var(--forge-darker);
+  border: 1px solid rgba(255, 102, 0, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--cyber-cyan), var(--cyber-magenta));
+  background: linear-gradient(180deg, var(--forge-orange), var(--forge-hot));
   border-radius: 5px;
-  box-shadow: 0 0 10px var(--cyber-cyan);
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--cyber-magenta), var(--cyber-cyan));
-  box-shadow: 0 0 15px var(--cyber-magenta);
+  background: linear-gradient(180deg, var(--forge-yellow), var(--forge-orange));
+  box-shadow: 0 0 15px rgba(255, 204, 102, 0.6);
 }
 
 /* Tables */
 .md-typeset table:not([class]) {
-  border: 1px solid rgba(0, 204, 204, 0.3);
-  background: rgba(17, 17, 17, 0.4);
+  border: 2px solid rgba(255, 102, 0, 0.4);
+  background: linear-gradient(135deg, rgba(42, 26, 10, 0.6), rgba(26, 10, 0, 0.4));
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.1);
 }
 
 .md-typeset table:not([class]) th {
-  background: rgba(0, 204, 204, 0.15);
-  color: var(--cyber-cyan);
-  border-bottom: 2px solid var(--cyber-cyan);
+  background: linear-gradient(135deg, rgba(255, 102, 0, 0.3), rgba(255, 51, 0, 0.2));
+  color: var(--forge-orange);
+  border-bottom: 2px solid var(--forge-orange);
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-shadow: var(--forge-glow);
 }
 
 .md-typeset table:not([class]) td {
-  border-bottom: 1px solid rgba(0, 204, 204, 0.1);
+  border-bottom: 1px solid rgba(255, 102, 0, 0.2);
+  color: #ffcc99;
 }
 
 .md-typeset table:not([class]) tr:hover {
-  background: rgba(204, 0, 204, 0.08);
+  background: linear-gradient(90deg, rgba(255, 102, 0, 0.2), rgba(255, 51, 0, 0.1));
 }
 
-/* CRT Monitor Effects */
-@keyframes scanlines {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100%; }
+/* Heat Shimmer Effects (Subtle CRT-like) */
+@keyframes heat-shimmer {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 100px 100px; }
 }
 
-@keyframes flicker {
-  0% { opacity: 0.97; }
+@keyframes heat-wave {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
+@keyframes forge-pulse {
+  0%, 100% { opacity: 0.95; }
   50% { opacity: 1; }
-  100% { opacity: 0.97; }
 }
 
 .md-main {
   position: relative;
 }
 
-/* Enhanced Scanlines - More Prominent */
+/* Heat Shimmer Overlay - Subtle */
 .md-main::before {
   content: "";
   position: fixed;
@@ -373,18 +425,18 @@ body {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 204, 204, 0.08) 0px,
-    transparent 1px,
+    rgba(255, 102, 0, 0.02) 0px,
     transparent 2px,
-    rgba(0, 204, 204, 0.05) 3px,
-    transparent 4px
+    transparent 4px,
+    rgba(255, 153, 51, 0.01) 6px,
+    transparent 8px
   );
   pointer-events: none;
   z-index: 1000;
-  animation: scanlines 8s linear infinite;
+  animation: heat-shimmer 15s ease-in-out infinite, heat-wave 5s ease-in-out infinite;
 }
 
-/* CRT Vignette Effect */
+/* Forge Glow Vignette */
 .md-main::after {
   content: "";
   position: fixed;
@@ -392,34 +444,38 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, transparent 0%, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+  background: radial-gradient(
+    ellipse at bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(26, 10, 0, 0.3) 70%,
+    rgba(13, 5, 0, 0.6) 100%
+  );
   pointer-events: none;
   z-index: 999;
 }
 
-/* CRT Screen Curvature & Glow */
+/* Content Forge Pulse */
 .md-content__inner {
-  animation: flicker 3s ease-in-out infinite;
+  animation: forge-pulse 4s ease-in-out infinite;
 }
 
-/* Phosphor Glow on Text */
+/* Ember Glow on Text */
 .md-typeset {
-  text-shadow: 0 0 1px rgba(0, 204, 204, 0.3);
+  text-shadow: 0 0 1px rgba(255, 153, 51, 0.2);
 }
 
-/* Glitch Effect on Hover for Headers */
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+/* Heat Distortion on Hover for Headers */
+@keyframes heat-distort {
+  0%, 100% { transform: translate(0); filter: blur(0px); }
+  25% { transform: translate(-1px, 1px); filter: blur(0.3px); }
+  50% { transform: translate(1px, -1px); filter: blur(0.5px); }
+  75% { transform: translate(-1px, -1px); filter: blur(0.3px); }
 }
 
 .md-typeset h1:hover,
 .md-typeset h2:hover {
-  animation: glitch 0.3s ease-in-out;
+  animation: heat-distort 0.6s ease-in-out;
 }
 
 /* CRT Monitor Visual Element */
@@ -490,12 +546,12 @@ body {
   position: relative;
   width: 400px;
   height: 300px;
-  background: #0a0a0a;
-  border: 8px solid #1a1a1a;
+  background: linear-gradient(135deg, #1a0a00 0%, #0d0500 100%);
+  border: 4px solid rgba(255, 102, 0, 0.4);
   border-radius: 20px 20px 30px 30px;
   box-shadow:
-    0 0 20px rgba(0, 0, 0, 0.8),
-    inset 0 0 30px rgba(0, 0, 0, 0.5);
+    0 0 30px rgba(255, 102, 0, 0.3),
+    inset 0 0 30px rgba(0, 0, 0, 0.7);
   transform: rotateX(2deg);
   overflow: hidden;
 }
@@ -506,15 +562,16 @@ body {
   left: 15px;
   right: 15px;
   bottom: 50px;
-  background: #000000;
+  background: linear-gradient(135deg, #0a0503 0%, #000000 100%);
   border-radius: 10px;
   padding: 20px;
   font-family: 'Fira Code', monospace;
   font-size: 14px;
   color: var(--cyber-cyan);
   line-height: 1.6;
-  animation: crt-glow-pulse 2s ease-in-out infinite;
+  animation: crt-glow-pulse 3s ease-in-out infinite;
   overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(255, 102, 0, 0.1);
 }
 
 .crt-screen::before {
@@ -526,18 +583,19 @@ body {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 204, 204, 0.1) 0px,
+    rgba(0, 204, 204, 0.03) 0px,
     transparent 1px,
-    transparent 2px
+    transparent 3px
   );
   pointer-events: none;
-  animation: scanlines 10s linear infinite;
+  animation: scanlines 12s linear infinite;
+  opacity: 0.5;
 }
 
 .crt-text {
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 3px var(--cyber-cyan);
+  text-shadow: 0 0 2px var(--cyber-cyan), 0 0 8px rgba(255, 102, 0, 0.3);
 }
 
 .terminal-cursor {
@@ -588,47 +646,54 @@ body {
    BLACKSMITHING FORGE ELEMENTS
    ================================== */
 
-/* Floating Ember Particles */
+/* Floating Ember Particles - PROMINENT */
 @keyframes ember-rise {
   0% {
-    transform: translateY(0) translateX(0) scale(1);
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
     opacity: 0;
   }
-  10% {
+  5% {
     opacity: 1;
   }
-  70% {
-    opacity: 1;
+  80% {
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(-100vh) translateX(30px) scale(0.3);
+    transform: translateY(-120vh) translateX(40px) scale(0.2) rotate(360deg);
     opacity: 0;
   }
 }
 
 @keyframes ember-rise-alt {
   0% {
-    transform: translateY(0) translateX(0) scale(1);
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
     opacity: 0;
   }
-  10% {
+  5% {
     opacity: 1;
   }
-  70% {
-    opacity: 1;
+  80% {
+    opacity: 0.9;
   }
   100% {
-    transform: translateY(-100vh) translateX(-20px) scale(0.4);
+    transform: translateY(-120vh) translateX(-30px) scale(0.3) rotate(-360deg);
     opacity: 0;
   }
 }
 
 @keyframes ember-glow {
   0%, 100% {
-    box-shadow: 0 0 5px var(--forge-orange), 0 0 10px var(--forge-hot);
+    box-shadow:
+      0 0 10px var(--forge-orange),
+      0 0 20px var(--forge-hot),
+      0 0 30px rgba(255, 102, 0, 0.5);
   }
   50% {
-    box-shadow: 0 0 10px var(--forge-orange), 0 0 20px var(--forge-hot), 0 0 30px rgba(255, 102, 0, 0.3);
+    box-shadow:
+      0 0 20px var(--forge-yellow),
+      0 0 40px var(--forge-orange),
+      0 0 60px rgba(255, 102, 0, 0.7),
+      0 0 80px rgba(255, 51, 0, 0.4);
   }
 }
 
@@ -645,13 +710,17 @@ body {
 
 .ember {
   position: absolute;
-  bottom: -10px;
-  width: 3px;
-  height: 3px;
-  background: var(--forge-orange);
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, var(--forge-yellow) 0%, var(--forge-orange) 50%, var(--forge-hot) 100%);
   border-radius: 50%;
-  box-shadow: 0 0 5px var(--forge-orange), 0 0 10px var(--forge-hot);
-  animation: ember-rise linear infinite, ember-glow 2s ease-in-out infinite;
+  box-shadow:
+    0 0 10px var(--forge-orange),
+    0 0 20px var(--forge-hot),
+    0 0 30px rgba(255, 102, 0, 0.5);
+  animation: ember-rise linear infinite, ember-glow 1.5s ease-in-out infinite;
+  filter: blur(0.5px);
 }
 
 .ember:nth-child(1) { left: 10%; animation-duration: 12s, 2s; animation-delay: 0s, 0s; }
