@@ -1,0 +1,17 @@
+# MkDocs and Material Theme
+mkdocs>=1.5.3
+mkdocs-material>=9.5.0
+
+# Blog Plugin (included in Material for MkDocs Insiders or as standalone)
+mkdocs-material[blog]>=9.5.0
+
+# Additional Plugins
+mkdocs-minify-plugin>=0.8.0
+mkdocs-redirects>=1.2.1
+
+# Required for advanced features
+pillow>=10.0.0
+cairosvg>=2.7.0
+
+# Markdown extensions
+pymdown-extensions>=10.7

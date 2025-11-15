@@ -1,0 +1,156 @@
+site_name: Digital Grease Blog
+site_url: https://blog.digitalgrease.dev
+site_author: Digital Grease
+site_description: Making, Breaking, Learning, Fixing
+
+# Repository
+repo_name: blog.digitalgrease.github.io
+repo_url: https://github.com/digitalgrease/blog.digitalgrease.github.io
+
+# Theme Configuration
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: assets/favicon.png
+  logo: assets/favicon.png
+
+  # Color Scheme - Dark Cyberpunk
+  palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Light mode option
+    - scheme: default
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+  # Features
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+  # Fonts
+  font:
+    text: Share Tech Mono
+    code: Fira Code
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - blog:
+      blog_dir: .
+      post_dir: posts
+      post_date_format: medium
+      post_url_format: "{slug}"
+      archive: true
+      archive_name: Archive
+      archive_date_format: yyyy
+      archive_url_format: "archive/{date}"
+      categories: true
+      categories_name: Categories
+      categories_url_format: "category/{slug}"
+      authors: true
+      authors_file: .authors.yml
+      draft: true
+      draft_on_serve: true
+      pagination: true
+      pagination_per_page: 10
+  - tags:
+      tags_file: tags.md
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+
+# Additional CSS
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/cyberpunk.css
+
+# Additional JavaScript
+extra_javascript:
+  - javascripts/extra.js
+
+# Extra Configuration
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://digitalgrease.dev
+      name: Homepage
+    - icon: fontawesome/brands/github
+      link: https://github.com/digitalgrease
+      name: GitHub
+
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: Thanks for your feedback!
+
+# Copyright
+copyright: Copyright &copy; 2025 Digital Grease
+
+# Navigation
+nav:
+  - Home: index.md
+  - Blog:
+    - posts/index.md
+  - Categories: tags.md
+  - About: about.md

@@ -1,0 +1,42 @@
+/* Additional customizations */
+
+/* Logo styling */
+.md-header__button.md-logo img {
+  filter: drop-shadow(0 0 10px var(--cyber-cyan));
+}
+
+/* Social icons with neon effect */
+.md-footer__link {
+  color: var(--cyber-cyan);
+  transition: all 0.3s ease;
+}
+
+.md-footer__link:hover {
+  color: var(--cyber-magenta);
+  text-shadow: 0 0 10px var(--cyber-magenta);
+}
+
+/* Blog post metadata */
+.md-typeset .md-meta {
+  color: rgba(0, 255, 255, 0.7);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Custom blockquotes */
+.md-typeset blockquote {
+  border-left: 4px solid var(--cyber-magenta);
+  background: rgba(255, 0, 255, 0.05);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Horizontal rule */
+.md-typeset hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+  box-shadow: 0 0 10px var(--cyber-cyan);
+  margin: 2rem 0;
+}
