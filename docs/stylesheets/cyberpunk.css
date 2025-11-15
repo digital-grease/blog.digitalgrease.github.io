@@ -478,168 +478,319 @@ body::before {
   animation: heat-distort 0.6s ease-in-out;
 }
 
-/* CRT Monitor Visual Element */
-@keyframes crt-glow-pulse {
-  0%, 100% {
-    box-shadow:
-      0 0 20px rgba(0, 204, 204, 0.4),
-      0 0 40px rgba(0, 204, 204, 0.2),
-      inset 0 0 30px rgba(0, 204, 204, 0.1);
-  }
-  50% {
-    box-shadow:
-      0 0 30px rgba(0, 204, 204, 0.6),
-      0 0 60px rgba(0, 204, 204, 0.3),
-      inset 0 0 40px rgba(0, 204, 204, 0.15);
-  }
-}
+/* BLACKSMITH FORGE WITH CYBERPUNK OVERLAY */
 
-@keyframes forge-fire-pulse {
+@keyframes fire-flicker {
   0%, 100% {
     box-shadow:
-      0 0 30px rgba(255, 102, 0, 0.5),
-      0 0 60px rgba(255, 51, 0, 0.3),
-      0 0 90px rgba(255, 51, 0, 0.2),
-      0 0 120px rgba(255, 51, 0, 0.1);
-    filter: brightness(1);
+      0 -20px 50px rgba(255, 102, 0, 0.8),
+      0 -40px 80px rgba(255, 51, 0, 0.6),
+      0 -60px 120px rgba(255, 51, 0, 0.4);
+    filter: brightness(1.2);
   }
   25% {
     box-shadow:
-      0 0 40px rgba(255, 102, 0, 0.6),
-      0 0 80px rgba(255, 51, 0, 0.4),
-      0 0 120px rgba(255, 51, 0, 0.3),
-      0 0 160px rgba(255, 51, 0, 0.15);
-    filter: brightness(1.1);
+      0 -25px 60px rgba(255, 102, 0, 0.9),
+      0 -50px 100px rgba(255, 51, 0, 0.7),
+      0 -80px 150px rgba(255, 51, 0, 0.5);
+    filter: brightness(1.4);
   }
   50% {
     box-shadow:
-      0 0 35px rgba(255, 102, 0, 0.55),
-      0 0 70px rgba(255, 51, 0, 0.35),
-      0 0 105px rgba(255, 51, 0, 0.25),
-      0 0 140px rgba(255, 51, 0, 0.12);
-    filter: brightness(1.05);
+      0 -22px 55px rgba(255, 102, 0, 0.85),
+      0 -45px 90px rgba(255, 51, 0, 0.65),
+      0 -70px 130px rgba(255, 51, 0, 0.45);
+    filter: brightness(1.3);
   }
   75% {
     box-shadow:
-      0 0 45px rgba(255, 102, 0, 0.65),
-      0 0 90px rgba(255, 51, 0, 0.45),
-      0 0 135px rgba(255, 51, 0, 0.3),
-      0 0 180px rgba(255, 51, 0, 0.18);
-    filter: brightness(1.15);
+      0 -28px 65px rgba(255, 102, 0, 0.95),
+      0 -55px 110px rgba(255, 51, 0, 0.75),
+      0 -90px 160px rgba(255, 51, 0, 0.55);
+    filter: brightness(1.5);
   }
 }
 
-@keyframes terminal-cursor {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+@keyframes metal-heat-pulse {
+  0%, 100% {
+    background: linear-gradient(90deg, var(--forge-hot) 0%, var(--forge-orange) 50%, var(--forge-yellow) 100%);
+    box-shadow: 0 0 20px var(--forge-orange), 0 0 40px var(--forge-hot);
+  }
+  50% {
+    background: linear-gradient(90deg, var(--forge-orange) 0%, var(--forge-yellow) 50%, var(--forge-white) 100%);
+    box-shadow: 0 0 30px var(--forge-yellow), 0 0 60px var(--forge-orange);
+  }
 }
 
-.crt-monitor-container {
+@keyframes holo-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes hud-blink {
+  0%, 49%, 100% { opacity: 1; }
+  50%, 99% { opacity: 0.3; }
+}
+
+.forge-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 3rem 0;
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
-.crt-monitor {
+.forge {
   position: relative;
-  width: 400px;
-  height: 300px;
-  background: linear-gradient(135deg, #1a0a00 0%, #0d0500 100%);
-  border: 4px solid rgba(255, 102, 0, 0.4);
-  border-radius: 20px 20px 30px 30px;
-  box-shadow:
-    0 0 30px rgba(255, 102, 0, 0.3),
-    inset 0 0 30px rgba(0, 0, 0, 0.7);
-  transform: rotateX(2deg);
-  overflow: hidden;
+  width: 500px;
+  height: 350px;
+  transform: rotateX(5deg);
 }
 
-.crt-screen {
+/* Forge Structure */
+.forge-body {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 50px;
-  background: linear-gradient(135deg, #0a0503 0%, #000000 100%);
-  border-radius: 10px;
-  padding: 20px;
-  font-family: 'Fira Code', monospace;
-  font-size: 14px;
-  color: var(--cyber-cyan);
-  line-height: 1.6;
-  animation: crt-glow-pulse 3s ease-in-out infinite;
-  overflow: hidden;
-  box-shadow: inset 0 0 20px rgba(255, 102, 0, 0.1);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 200px;
+  background: linear-gradient(135deg, #3a2a1a 0%, #2a1a0a 50%, #1a0a00 100%);
+  border: 3px solid rgba(102, 51, 0, 0.8);
+  border-radius: 10px 10px 5px 5px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    inset 0 -50px 100px rgba(255, 102, 0, 0.3);
 }
 
-.crt-screen::before {
-  content: "";
+/* Forge Opening/Fire Bed */
+.forge-fire {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 100px;
+  background: radial-gradient(ellipse at bottom, var(--forge-yellow) 0%, var(--forge-orange) 30%, var(--forge-hot) 60%, var(--forge-red) 100%);
+  border-radius: 50%;
+  animation: fire-flicker 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* Hot Metal Being Forged */
+.forge-metal {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg);
+  width: 180px;
+  height: 25px;
+  border-radius: 3px;
+  animation: metal-heat-pulse 2.5s ease-in-out infinite;
+  z-index: 3;
+  box-shadow: 0 0 20px var(--forge-orange), 0 0 40px var(--forge-hot);
+}
+
+/* Tongs Holding Metal */
+.forge-tongs {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 40px;
+  z-index: 4;
+}
+
+.tong-arm {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #666 0%, #444 50%, #222 100%);
+  border-radius: 2px;
+}
+
+.tong-arm.left {
+  left: 0;
+  transform: rotate(-20deg);
+  transform-origin: right center;
+}
+
+.tong-arm.right {
+  right: 0;
+  transform: rotate(20deg);
+  transform-origin: left center;
+}
+
+/* CYBERPUNK OVERLAY ELEMENTS */
+
+/* Holographic Scan Lines */
+.forge-holo-scan {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 204, 204, 0.03) 0px,
-    transparent 1px,
-    transparent 3px
-  );
+  overflow: hidden;
+  z-index: 10;
   pointer-events: none;
-  animation: scanlines 12s linear infinite;
+}
+
+.holo-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--cyber-cyan) 50%, transparent 100%);
+  box-shadow: 0 0 10px var(--cyber-cyan);
+  animation: holo-scan 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.holo-line:nth-child(2) {
+  animation-delay: 2s;
+}
+
+/* Digital HUD Overlay */
+.forge-hud {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 5px var(--cyber-cyan);
+  z-index: 15;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--cyber-cyan);
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0, 204, 204, 0.3), inset 0 0 20px rgba(0, 204, 204, 0.05);
+}
+
+.hud-label {
+  color: rgba(0, 204, 204, 0.7);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.hud-value {
+  color: var(--forge-orange);
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--forge-orange);
+}
+
+.hud-status {
+  color: var(--cyber-green);
+  animation: hud-blink 2s step-end infinite;
+}
+
+/* Data Stream Effects */
+.forge-data-stream {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  z-index: 12;
+  overflow: hidden;
+}
+
+.data-bit {
+  position: absolute;
+  width: 2px;
+  height: 8px;
+  background: var(--cyber-cyan);
+  box-shadow: 0 0 5px var(--cyber-cyan);
+  animation: data-stream 2s linear infinite;
+}
+
+.data-bit:nth-child(1) { animation-delay: 0s; }
+.data-bit:nth-child(2) { animation-delay: 0.5s; }
+.data-bit:nth-child(3) { animation-delay: 1s; }
+.data-bit:nth-child(4) { animation-delay: 1.5s; }
+
+/* Cyber Grid Overlay */
+.forge-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(0deg, transparent 0px, rgba(0, 204, 204, 0.03) 1px, transparent 2px, transparent 20px),
+    repeating-linear-gradient(90deg, transparent 0px, rgba(0, 204, 204, 0.03) 1px, transparent 2px, transparent 20px);
+  z-index: 8;
+  pointer-events: none;
   opacity: 0.5;
 }
 
-.crt-text {
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 0 2px var(--cyber-cyan), 0 0 8px rgba(255, 102, 0, 0.3);
-}
-
-.terminal-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 16px;
-  background: var(--cyber-cyan);
-  margin-left: 2px;
-  animation: terminal-cursor 1s step-end infinite;
-  box-shadow: 0 0 5px var(--cyber-cyan);
-}
-
-.crt-base {
+/* Corner Brackets (Cyber Frame) */
+.forge-bracket {
   position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--cyber-cyan);
+  z-index: 20;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0, 204, 204, 0.3);
+}
+
+.forge-bracket.top-left {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 3px 0 0 0;
+}
+
+.forge-bracket.top-right {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 3px 0 0;
+}
+
+.forge-bracket.bottom-left {
   bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 30px;
-  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  left: 10px;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 3px;
 }
 
-.crt-stand {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 20px;
-  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
-  border-radius: 0 0 5px 5px;
-}
-
-.crt-led {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  width: 8px;
-  height: 8px;
-  background: var(--cyber-green);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--cyber-green);
+.forge-bracket.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 3px 0;
 }
 
 /* ==================================

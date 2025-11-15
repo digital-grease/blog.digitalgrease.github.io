@@ -1,11 +1,11 @@
 ---
-title: Digital Grease Blog
+title: The Forge
 hide:
   - navigation
   - toc
 ---
 
-# Welcome to Digital Grease Blog
+# Welcome to The Forge
 
 <div class="grid" markdown>
 
@@ -17,20 +17,45 @@ hide:
 
 </div>
 
-<div class="crt-monitor-container">
-  <div class="crt-monitor">
-    <div class="crt-screen">
-      <div class="crt-text">
-        > SYSTEM ONLINE<br>
-        > INITIALIZING...<br>
-        > DIGITAL_GREASE.DEV<br>
-        > STATUS: ACTIVE<br>
-        > WELCOME, HACKER<span class="terminal-cursor"></span>
-      </div>
+<div class="forge-container">
+  <div class="forge">
+    <!-- Physical Forge Elements -->
+    <div class="forge-body"></div>
+    <div class="forge-fire"></div>
+    <div class="forge-metal"></div>
+    <div class="forge-tongs">
+      <div class="tong-arm left"></div>
+      <div class="tong-arm right"></div>
     </div>
-    <div class="crt-base"></div>
-    <div class="crt-stand"></div>
-    <div class="crt-led"></div>
+
+    <!-- Cyberpunk Overlay Elements -->
+    <div class="forge-grid"></div>
+
+    <div class="forge-holo-scan">
+      <div class="holo-line"></div>
+      <div class="holo-line"></div>
+    </div>
+
+    <div class="forge-data-stream">
+      <div class="data-bit"></div>
+      <div class="data-bit"></div>
+      <div class="data-bit"></div>
+      <div class="data-bit"></div>
+    </div>
+
+    <div class="forge-hud">
+      <div class="hud-label">TEMP</div>
+      <div class="hud-value">2,300°F</div>
+      <div class="hud-label">STATUS</div>
+      <div class="hud-status">● FORGING</div>
+      <div class="hud-label">SYS</div>
+      <div class="hud-value">ONLINE</div>
+    </div>
+
+    <div class="forge-bracket top-left"></div>
+    <div class="forge-bracket top-right"></div>
+    <div class="forge-bracket bottom-left"></div>
+    <div class="forge-bracket bottom-right"></div>
   </div>
 </div>
 
