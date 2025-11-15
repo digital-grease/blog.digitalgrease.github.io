@@ -17,6 +17,23 @@ hide:
 
 </div>
 
+<div class="crt-monitor-container">
+  <div class="crt-monitor">
+    <div class="crt-screen">
+      <div class="crt-text">
+        > SYSTEM ONLINE<br>
+        > INITIALIZING...<br>
+        > DIGITAL_GREASE.DEV<br>
+        > STATUS: ACTIVE<br>
+        > WELCOME, HACKER<span class="terminal-cursor"></span>
+      </div>
+    </div>
+    <div class="crt-base"></div>
+    <div class="crt-stand"></div>
+    <div class="crt-led"></div>
+  </div>
+</div>
+
 ## Latest Posts
 
 Looking for the latest insights on cybersecurity, software development, and technology? Check out the [Blog](/posts/) section for recent articles.

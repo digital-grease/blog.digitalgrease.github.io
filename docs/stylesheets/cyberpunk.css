@@ -1,22 +1,23 @@
 /* Cyberpunk Theme - Dark Mode Enhancements */
 
 :root {
-  /* Cyberpunk Color Palette */
-  --cyber-cyan: #00ffff;
-  --cyber-magenta: #ff00ff;
+  /* Noir Cyberpunk Color Palette - Darker & Muted */
+  --cyber-cyan: #00cccc;
+  --cyber-magenta: #cc00cc;
   --cyber-pink: #ff1493;
-  --cyber-green: #00ff41;
+  --cyber-green: #00cc33;
   --cyber-purple: #9d00ff;
   --cyber-blue: #0080ff;
   --cyber-orange: #ff6600;
-  --cyber-dark: #0a0e27;
-  --cyber-darker: #050714;
-  --cyber-gray: #1a1f3a;
+  --cyber-dark: #000000;
+  --cyber-darker: #000000;
+  --cyber-gray: #0a0a0a;
+  --cyber-medium-dark: #111111;
 
-  /* Neon Glow Effects */
-  --neon-cyan-glow: 0 0 5px var(--cyber-cyan), 0 0 10px var(--cyber-cyan), 0 0 15px var(--cyber-cyan);
-  --neon-magenta-glow: 0 0 5px var(--cyber-magenta), 0 0 10px var(--cyber-magenta), 0 0 15px var(--cyber-magenta);
-  --neon-green-glow: 0 0 5px var(--cyber-green), 0 0 10px var(--cyber-green), 0 0 15px var(--cyber-green);
+  /* Subtle Neon Glow Effects - More Noir */
+  --neon-cyan-glow: 0 0 3px rgba(0, 204, 204, 0.5), 0 0 6px rgba(0, 204, 204, 0.3), 0 0 9px rgba(0, 204, 204, 0.2);
+  --neon-magenta-glow: 0 0 3px rgba(204, 0, 204, 0.5), 0 0 6px rgba(204, 0, 204, 0.3), 0 0 9px rgba(204, 0, 204, 0.2);
+  --neon-green-glow: 0 0 3px rgba(0, 204, 51, 0.5), 0 0 6px rgba(0, 204, 51, 0.3), 0 0 9px rgba(0, 204, 51, 0.2);
 }
 
 /* Override Material Theme Dark Background */
@@ -29,18 +30,18 @@
   --md-primary-fg-color: var(--cyber-darker);
 }
 
-/* Body Background with Cyberpunk Gradient */
+/* Body Background - Pure Noir Black */
 body {
-  background: linear-gradient(135deg, var(--cyber-darker) 0%, #0d1224 50%, var(--cyber-darker) 100%);
+  background: #000000;
   background-attachment: fixed;
 }
 
 /* Header Styling */
 .md-header {
-  background: rgba(10, 14, 39, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--cyber-cyan);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 204, 204, 0.5);
+  box-shadow: 0 0 10px rgba(0, 204, 204, 0.2);
 }
 
 .md-header__title {
@@ -76,9 +77,9 @@ body {
 }
 
 .md-main__inner {
-  background: rgba(10, 14, 39, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 204, 204, 0.15);
   border-radius: 8px;
   margin-top: 1rem;
 }
@@ -196,8 +197,8 @@ body {
 
 /* Blog Post Cards */
 .md-typeset article {
-  background: rgba(26, 31, 58, 0.5);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  background: rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(0, 204, 204, 0.2);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
@@ -206,7 +207,7 @@ body {
 
 .md-typeset article:hover {
   border-color: var(--cyber-magenta);
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  box-shadow: 0 0 15px rgba(204, 0, 204, 0.2);
   transform: translateY(-2px);
 }
 
@@ -265,8 +266,8 @@ body {
 
 /* Sidebar */
 .md-sidebar {
-  background: rgba(10, 14, 39, 0.8);
-  border-right: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.9);
+  border-right: 1px solid rgba(0, 204, 204, 0.15);
 }
 
 .md-nav__link {
@@ -319,12 +320,12 @@ body {
 
 /* Tables */
 .md-typeset table:not([class]) {
-  border: 1px solid var(--cyber-cyan);
-  background: rgba(26, 31, 58, 0.3);
+  border: 1px solid rgba(0, 204, 204, 0.3);
+  background: rgba(17, 17, 17, 0.4);
 }
 
 .md-typeset table:not([class]) th {
-  background: rgba(0, 255, 255, 0.2);
+  background: rgba(0, 204, 204, 0.15);
   color: var(--cyber-cyan);
   border-bottom: 2px solid var(--cyber-cyan);
   text-transform: uppercase;
@@ -332,23 +333,30 @@ body {
 }
 
 .md-typeset table:not([class]) td {
-  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 204, 204, 0.1);
 }
 
 .md-typeset table:not([class]) tr:hover {
-  background: rgba(255, 0, 255, 0.1);
+  background: rgba(204, 0, 204, 0.08);
 }
 
-/* Animated Scanlines Effect (subtle) */
+/* CRT Monitor Effects */
 @keyframes scanlines {
   0% { background-position: 0 0; }
   100% { background-position: 0 100%; }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  50% { opacity: 1; }
+  100% { opacity: 0.97; }
 }
 
 .md-main {
   position: relative;
 }
 
+/* Enhanced Scanlines - More Prominent */
 .md-main::before {
   content: "";
   position: fixed;
@@ -358,13 +366,38 @@ body {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 255, 255, 0.03) 0px,
+    rgba(0, 204, 204, 0.08) 0px,
     transparent 1px,
-    transparent 2px
+    transparent 2px,
+    rgba(0, 204, 204, 0.05) 3px,
+    transparent 4px
   );
   pointer-events: none;
-  z-index: 1;
-  animation: scanlines 10s linear infinite;
+  z-index: 1000;
+  animation: scanlines 8s linear infinite;
+}
+
+/* CRT Vignette Effect */
+.md-main::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* CRT Screen Curvature & Glow */
+.md-content__inner {
+  animation: flicker 3s ease-in-out infinite;
+}
+
+/* Phosphor Glow on Text */
+.md-typeset {
+  text-shadow: 0 0 1px rgba(0, 204, 204, 0.3);
 }
 
 /* Glitch Effect on Hover for Headers */
@@ -380,4 +413,131 @@ body {
 .md-typeset h1:hover,
 .md-typeset h2:hover {
   animation: glitch 0.3s ease-in-out;
+}
+
+/* CRT Monitor Visual Element */
+@keyframes crt-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(0, 204, 204, 0.4),
+      0 0 40px rgba(0, 204, 204, 0.2),
+      inset 0 0 30px rgba(0, 204, 204, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 204, 204, 0.6),
+      0 0 60px rgba(0, 204, 204, 0.3),
+      inset 0 0 40px rgba(0, 204, 204, 0.15);
+  }
+}
+
+@keyframes terminal-cursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.crt-monitor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  perspective: 1000px;
+}
+
+.crt-monitor {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background: #0a0a0a;
+  border: 8px solid #1a1a1a;
+  border-radius: 20px 20px 30px 30px;
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+  transform: rotateX(2deg);
+  overflow: hidden;
+}
+
+.crt-screen {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 50px;
+  background: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  color: var(--cyber-cyan);
+  line-height: 1.6;
+  animation: crt-glow-pulse 2s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.crt-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 204, 204, 0.1) 0px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  animation: scanlines 10s linear infinite;
+}
+
+.crt-text {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 3px var(--cyber-cyan);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--cyber-cyan);
+  margin-left: 2px;
+  animation: terminal-cursor 1s step-end infinite;
+  box-shadow: 0 0 5px var(--cyber-cyan);
+}
+
+.crt-base {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 30px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.crt-stand {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border-radius: 0 0 5px 5px;
+}
+
+.crt-led {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  width: 8px;
+  height: 8px;
+  background: var(--cyber-green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--cyber-green);
 }
