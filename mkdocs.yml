@@ -145,7 +145,6 @@ copyright: Copyright &copy; 2025 Digital Grease
 # Navigation
 nav:
   - Home: index.md
-  - Blog:
-    - posts/index.md
+  - Blog: posts/
   - Categories: tags.md
   - About: about.md
