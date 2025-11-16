@@ -24,12 +24,6 @@ hide:
   </div>
 </div>
 
-## Latest Posts
-
-Looking for the latest insights on cybersecurity, software development, and technology? Check out the [Blog](/posts/) section for recent articles.
-
----
-
 ## What You'll Find Here
 
 <div class="grid cards" markdown>
@@ -62,7 +56,9 @@ Looking for the latest insights on cybersecurity, software development, and tech
 
 ---
 
-## Recent Topics
+## Latest Posts
+
+Looking for the latest insights on cybersecurity, software development, and technology? Check out the [Blog](/posts/) section for recent articles.
 
 Explore posts by [category](/tags/) or browse the [archive](/posts/archive/) to find specific content.
 

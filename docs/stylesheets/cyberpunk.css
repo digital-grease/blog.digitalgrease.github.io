@@ -373,16 +373,30 @@ body::before {
 
 /* Sidebar */
 .md-sidebar {
-  background: rgba(8, 6, 5, 0.95);
+  background: rgba(15, 12, 10, 0.95);
   border-right: 1px solid rgba(0, 204, 204, 0.2);
   box-shadow:
     2px 0 20px rgba(0, 0, 0, 0.8),
     inset -1px 0 0 rgba(0, 204, 204, 0.1);
 }
 
+.md-nav {
+  background: transparent;
+}
+
+.md-nav__item {
+  position: relative;
+  z-index: 1;
+}
+
 .md-nav__link {
-  color: #b89b7f;
+  color: #c9ad8f;
   transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  padding: 0.625rem 0.8rem;
 }
 
 .md-nav__link:hover {
@@ -390,6 +404,7 @@ body::before {
   text-shadow:
     0 0 8px rgba(0, 204, 204, 0.6),
     0 0 15px rgba(0, 204, 204, 0.3);
+  background: rgba(0, 204, 204, 0.05);
 }
 
 .md-nav__link--active {
@@ -398,8 +413,55 @@ body::before {
   text-shadow:
     0 0 10px rgba(0, 204, 204, 0.8),
     0 0 20px rgba(0, 204, 204, 0.4);
-  background: rgba(0, 204, 204, 0.08);
-  border-left: 2px solid var(--cyber-cyan);
+  background: rgba(0, 204, 204, 0.12);
+  border-left: 3px solid var(--cyber-cyan);
+}
+
+/* Expandable navigation toggles */
+.md-nav__toggle {
+  position: relative;
+  z-index: 15;
+  cursor: pointer;
+}
+
+.md-nav__toggle ~ .md-nav__link {
+  cursor: pointer;
+}
+
+/* Navigation icons/buttons */
+.md-nav__button {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+/* Ensure nested navigation is visible and clickable */
+.md-nav--secondary {
+  background: rgba(10, 8, 6, 0.8);
+  border-left: 2px solid rgba(0, 204, 204, 0.15);
+  margin-left: 0.4rem;
+}
+
+.md-nav--secondary .md-nav__link {
+  color: #b89b7f;
+  font-size: 0.9em;
+  padding: 0.5rem 0.8rem;
+}
+
+.md-nav--secondary .md-nav__link:hover {
+  color: var(--forge-orange);
+  background: rgba(255, 102, 0, 0.08);
+}
+
+/* Navigation titles */
+.md-nav__title {
+  color: var(--cyber-cyan);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  padding: 1rem 0.8rem 0.5rem;
+  background: transparent;
 }
 
 /* Footer */
