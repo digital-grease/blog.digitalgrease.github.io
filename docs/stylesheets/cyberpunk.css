@@ -964,36 +964,53 @@ body::before {
    ================================== */
 
 /* Tablet and below (768px) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 76.1875em) {
   /* Hide secondary sidebar completely on mobile */
   .md-sidebar--secondary {
-    display: none;
+    display: none !important;
   }
 
-  /* Ensure proper full-width layout on mobile */
+  /* Force sidebars to not take up layout space */
+  .md-sidebar--primary {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.25s;
+    z-index: 4;
+  }
+
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    transform: translateX(0);
+  }
+
+  /* Full-width content layout */
   .md-content {
-    margin: 0;
+    margin: 0 !important;
+    max-width: 100% !important;
   }
 
   .md-content__inner {
-    margin: 0;
-    padding: 0.8rem;
+    margin: 0 !important;
+    padding: 0.8rem !important;
   }
 
   .md-typeset {
-    padding: 0;
+    padding: 0 !important;
+  }
+
+  /* Ensure main container is full width */
+  .md-main {
+    flex: 1;
+  }
+
+  .md-main__inner {
+    margin: 0.5rem 0.8rem !important;
+    border-radius: 4px;
   }
 
   /* Reduce header text size */
   .md-header__title {
     font-size: 0.9rem;
     letter-spacing: 1.5px;
-  }
-
-  /* Adjust main content padding */
-  .md-main__inner {
-    margin-top: 0.5rem;
-    border-radius: 4px;
   }
 
   /* Scale down typography */
