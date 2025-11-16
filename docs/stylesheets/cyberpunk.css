@@ -31,40 +31,41 @@
 
 /* Override Material Theme Dark Background */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color: var(--forge-darker);
-  --md-default-fg-color: #ffcc99;
-  --md-code-bg-color: var(--forge-dark);
+  --md-default-bg-color: #0a0806;
+  --md-default-fg-color: #d4b5a0;
+  --md-code-bg-color: #0f0a08;
   --md-code-fg-color: var(--forge-amber);
-  --md-accent-fg-color: var(--forge-orange);
-  --md-primary-fg-color: var(--forge-darker);
+  --md-accent-fg-color: var(--cyber-cyan);
+  --md-primary-fg-color: #0a0806;
 }
 
-/* Body Background - Forge Atmosphere */
+/* Body Background - Dark Industrial Workshop */
 body {
   background: linear-gradient(
     180deg,
-    var(--forge-soot) 0%,
-    var(--forge-darker) 40%,
-    var(--forge-dark) 80%,
-    rgba(255, 51, 0, 0.1) 100%
+    #000000 0%,
+    #0a0806 30%,
+    #0f0a08 60%,
+    #1a0f0a 100%
   );
   background-attachment: fixed;
   position: relative;
 }
 
-/* Forge Floor Glow */
+/* Forge Floor Glow - Stronger */
 body::before {
   content: "";
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 30%;
+  height: 40%;
   background: radial-gradient(
     ellipse at bottom,
-    rgba(255, 102, 0, 0.3) 0%,
-    rgba(255, 51, 0, 0.2) 30%,
-    transparent 70%
+    rgba(255, 102, 0, 0.25) 0%,
+    rgba(255, 80, 20, 0.15) 25%,
+    rgba(255, 60, 0, 0.08) 50%,
+    transparent 80%
   );
   pointer-events: none;
   z-index: 0;
@@ -72,18 +73,24 @@ body::before {
 
 /* Header Styling */
 .md-header {
-  background: rgba(26, 10, 0, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255, 102, 0, 0.6);
-  box-shadow: 0 0 20px rgba(255, 102, 0, 0.3), inset 0 -2px 10px rgba(255, 51, 0, 0.2);
+  background: rgba(10, 8, 6, 0.98);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid rgba(0, 204, 204, 0.4);
+  box-shadow:
+    0 0 30px rgba(0, 204, 204, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.8),
+    inset 0 -1px 0 rgba(0, 204, 204, 0.3);
 }
 
 .md-header__title {
   font-weight: 700;
-  color: var(--forge-orange);
-  text-shadow: var(--forge-glow);
+  color: var(--cyber-cyan);
+  text-shadow:
+    0 0 10px rgba(0, 204, 204, 0.8),
+    0 0 20px rgba(0, 204, 204, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 /* Navigation Links */
@@ -112,40 +119,60 @@ body::before {
 }
 
 .md-main__inner {
-  background: rgba(26, 10, 0, 0.7);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 102, 0, 0.3);
+  background: rgba(10, 8, 6, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 204, 204, 0.2);
   border-radius: 8px;
   margin-top: 1rem;
-  box-shadow: 0 0 30px rgba(255, 102, 0, 0.15), inset 0 0 40px rgba(255, 51, 0, 0.05);
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(255, 102, 0, 0.15),
+    inset 0 0 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(0, 204, 204, 0.1);
 }
 
-/* Typography - Heated Metal */
+/* Typography - Cyberpunk Headers */
 .md-typeset h1 {
-  color: var(--forge-orange);
-  text-shadow: var(--forge-intense-glow);
-  border-bottom: 3px solid var(--forge-hot);
+  color: var(--cyber-cyan);
+  text-shadow:
+    0 0 15px rgba(0, 204, 204, 0.8),
+    0 0 30px rgba(0, 204, 204, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid var(--cyber-cyan);
   padding-bottom: 0.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  background: linear-gradient(90deg, var(--forge-hot) 0%, var(--forge-orange) 50%, var(--forge-yellow) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.md-typeset h1::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--cyber-cyan) 50%, transparent 100%);
+  box-shadow: 0 0 10px rgba(0, 204, 204, 0.6);
 }
 
 .md-typeset h2 {
-  color: var(--forge-amber);
-  text-shadow: var(--forge-glow);
+  color: var(--forge-orange);
+  text-shadow:
+    0 0 10px rgba(255, 102, 0, 0.8),
+    0 0 20px rgba(255, 102, 0, 0.4);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
 .md-typeset h3 {
-  color: var(--forge-yellow);
-  text-shadow: 0 0 10px rgba(255, 204, 102, 0.6);
+  color: var(--cyber-cyan);
+  text-shadow:
+    0 0 8px rgba(0, 204, 204, 0.6),
+    0 0 15px rgba(0, 204, 204, 0.3);
+  opacity: 0.9;
 }
 
 .md-typeset h4,
@@ -169,28 +196,37 @@ body::before {
   text-shadow: var(--forge-glow);
 }
 
-/* Code Blocks */
+/* Code Blocks - Terminal Style */
 .md-typeset code {
-  background-color: rgba(26, 10, 0, 0.8);
-  color: var(--forge-amber);
-  border: 1px solid rgba(255, 153, 51, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--cyber-cyan);
+  border: 1px solid rgba(0, 204, 204, 0.3);
   padding: 0.2em 0.4em;
   border-radius: 3px;
-  box-shadow: 0 0 5px rgba(255, 102, 0, 0.2);
+  box-shadow:
+    0 0 8px rgba(0, 204, 204, 0.2),
+    inset 0 1px 0 rgba(0, 204, 204, 0.1);
+  font-family: 'Fira Code', 'Courier New', monospace;
 }
 
 .md-typeset pre {
-  background-color: var(--forge-dark);
-  border: 1px solid rgba(255, 102, 0, 0.4);
+  background-color: #000000;
+  border: 1px solid rgba(0, 204, 204, 0.3);
   border-radius: 6px;
-  box-shadow: inset 0 0 20px rgba(255, 51, 0, 0.15), 0 0 15px rgba(255, 102, 0, 0.2);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 204, 204, 0.15),
+    inset 0 0 40px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(0, 204, 204, 0.2);
 }
 
 .md-typeset pre code {
   background-color: transparent;
   border: none;
-  color: var(--forge-yellow);
-  text-shadow: 0 0 3px rgba(255, 204, 102, 0.5);
+  color: var(--cyber-cyan);
+  text-shadow:
+    0 0 5px rgba(0, 204, 204, 0.4),
+    0 0 10px rgba(0, 204, 204, 0.2);
 }
 
 /* Buttons - Forged Metal */
@@ -240,22 +276,31 @@ body::before {
   border-color: var(--forge-orange);
 }
 
-/* Blog Post Cards - Hot Metal Plates */
+/* Blog Post Cards - Dark Industrial */
 .md-typeset article {
-  background: linear-gradient(135deg, rgba(42, 26, 10, 0.8), rgba(26, 10, 0, 0.6));
-  border: 2px solid rgba(255, 102, 0, 0.3);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(15, 10, 8, 0.9), rgba(10, 8, 6, 0.7));
+  border: 1px solid rgba(0, 204, 204, 0.25);
+  border-radius: 6px;
   padding: 1.5rem;
   margin-bottom: 2rem;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 102, 0, 0.1), inset 0 0 30px rgba(255, 51, 0, 0.05);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(255, 102, 0, 0.08),
+    inset 0 1px 0 rgba(0, 204, 204, 0.1),
+    inset 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .md-typeset article:hover {
-  border-color: var(--forge-orange);
-  box-shadow: 0 0 30px rgba(255, 102, 0, 0.4), inset 0 0 40px rgba(255, 51, 0, 0.1);
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(42, 26, 10, 0.9), rgba(26, 10, 0, 0.7));
+  border-color: var(--cyber-cyan);
+  box-shadow:
+    0 6px 30px rgba(0, 0, 0, 0.9),
+    0 0 50px rgba(0, 204, 204, 0.3),
+    0 0 80px rgba(255, 102, 0, 0.15),
+    inset 0 1px 0 rgba(0, 204, 204, 0.2),
+    inset 0 0 50px rgba(0, 0, 0, 0.6);
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(15, 10, 8, 1), rgba(10, 8, 6, 0.85));
 }
 
 /* Tags - Forge Brands */
@@ -278,136 +323,169 @@ body::before {
   box-shadow: var(--forge-glow);
 }
 
-/* Admonitions */
+/* Admonitions - Cyberpunk Panels */
 .md-typeset .admonition {
-  border-left: 4px solid var(--forge-orange);
-  background: linear-gradient(90deg, rgba(255, 102, 0, 0.15), rgba(255, 102, 0, 0.05));
+  border-left: 3px solid var(--cyber-cyan);
+  background: linear-gradient(90deg, rgba(0, 204, 204, 0.12), rgba(0, 204, 204, 0.04));
   border-radius: 4px;
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(0, 204, 204, 0.2);
 }
 
 .md-typeset .admonition-title {
-  background: rgba(255, 102, 0, 0.25);
+  background: rgba(0, 204, 204, 0.15);
   border: none;
-  color: var(--forge-orange);
+  color: var(--cyber-cyan);
   font-weight: 700;
-  text-shadow: 0 0 8px rgba(255, 102, 0, 0.5);
+  text-shadow:
+    0 0 10px rgba(0, 204, 204, 0.8),
+    0 0 20px rgba(0, 204, 204, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .md-typeset .admonition.warning {
-  border-left-color: var(--forge-yellow);
-  background: linear-gradient(90deg, rgba(255, 204, 102, 0.15), rgba(255, 204, 102, 0.05));
+  border-left-color: var(--forge-orange);
+  background: linear-gradient(90deg, rgba(255, 102, 0, 0.12), rgba(255, 102, 0, 0.04));
 }
 
 .md-typeset .admonition.warning .admonition-title {
-  background: rgba(255, 204, 102, 0.25);
-  color: var(--forge-yellow);
+  background: rgba(255, 102, 0, 0.15);
+  color: var(--forge-orange);
+  text-shadow:
+    0 0 10px rgba(255, 102, 0, 0.8),
+    0 0 20px rgba(255, 102, 0, 0.4);
 }
 
 .md-typeset .admonition.danger {
   border-left-color: var(--forge-hot);
-  background: linear-gradient(90deg, rgba(255, 51, 0, 0.2), rgba(255, 51, 0, 0.05));
+  background: linear-gradient(90deg, rgba(255, 51, 0, 0.15), rgba(255, 51, 0, 0.05));
 }
 
 .md-typeset .admonition.danger .admonition-title {
-  background: rgba(255, 51, 0, 0.3);
+  background: rgba(255, 51, 0, 0.2);
   color: var(--forge-hot);
-  text-shadow: 0 0 10px rgba(255, 51, 0, 0.6);
+  text-shadow:
+    0 0 12px rgba(255, 51, 0, 0.9),
+    0 0 25px rgba(255, 51, 0, 0.5);
 }
 
 /* Sidebar */
 .md-sidebar {
-  background: rgba(26, 10, 0, 0.9);
-  border-right: 2px solid rgba(255, 102, 0, 0.2);
-  box-shadow: 2px 0 15px rgba(255, 102, 0, 0.1);
+  background: rgba(8, 6, 5, 0.95);
+  border-right: 1px solid rgba(0, 204, 204, 0.2);
+  box-shadow:
+    2px 0 20px rgba(0, 0, 0, 0.8),
+    inset -1px 0 0 rgba(0, 204, 204, 0.1);
 }
 
 .md-nav__link {
-  color: #ffcc99;
+  color: #b89b7f;
   transition: all 0.3s ease;
 }
 
 .md-nav__link:hover {
-  color: var(--forge-orange);
-  text-shadow: var(--forge-glow);
+  color: var(--cyber-cyan);
+  text-shadow:
+    0 0 8px rgba(0, 204, 204, 0.6),
+    0 0 15px rgba(0, 204, 204, 0.3);
 }
 
 .md-nav__link--active {
-  color: var(--forge-yellow);
+  color: var(--cyber-cyan);
   font-weight: 600;
-  text-shadow: 0 0 8px rgba(255, 204, 102, 0.5);
+  text-shadow:
+    0 0 10px rgba(0, 204, 204, 0.8),
+    0 0 20px rgba(0, 204, 204, 0.4);
+  background: rgba(0, 204, 204, 0.08);
+  border-left: 2px solid var(--cyber-cyan);
 }
 
 /* Footer */
 .md-footer {
-  background: linear-gradient(180deg, var(--forge-darker), var(--forge-soot));
-  border-top: 2px solid var(--forge-orange);
-  box-shadow: 0 -2px 20px rgba(255, 102, 0, 0.3);
+  background: linear-gradient(180deg, #0a0806, #000000);
+  border-top: 1px solid var(--cyber-cyan);
+  box-shadow:
+    0 -2px 30px rgba(0, 0, 0, 0.9),
+    0 -1px 0 rgba(0, 204, 204, 0.3),
+    inset 0 1px 0 rgba(0, 204, 204, 0.2);
 }
 
 .md-footer-meta {
-  background-color: rgba(13, 5, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.98);
 }
 
-/* Scrollbar - Heated Metal */
+/* Scrollbar - Cyberpunk */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--forge-darker);
-  border: 1px solid rgba(255, 102, 0, 0.2);
+  background: #000000;
+  border: 1px solid rgba(0, 204, 204, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--forge-orange), var(--forge-hot));
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+  background: linear-gradient(180deg, var(--cyber-cyan), rgba(0, 204, 204, 0.6));
+  border-radius: 6px;
+  box-shadow:
+    0 0 10px rgba(0, 204, 204, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 204, 204, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--forge-yellow), var(--forge-orange));
-  box-shadow: 0 0 15px rgba(255, 204, 102, 0.6);
+  background: linear-gradient(180deg, var(--cyber-cyan), var(--cyber-cyan));
+  box-shadow:
+    0 0 20px rgba(0, 204, 204, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Tables */
+/* Tables - Data Grid Style */
 .md-typeset table:not([class]) {
-  border: 2px solid rgba(255, 102, 0, 0.4);
-  background: linear-gradient(135deg, rgba(42, 26, 10, 0.6), rgba(26, 10, 0, 0.4));
-  box-shadow: 0 0 15px rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(0, 204, 204, 0.3);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(10, 8, 6, 0.6));
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 204, 204, 0.1);
 }
 
 .md-typeset table:not([class]) th {
-  background: linear-gradient(135deg, rgba(255, 102, 0, 0.3), rgba(255, 51, 0, 0.2));
-  color: var(--forge-orange);
-  border-bottom: 2px solid var(--forge-orange);
+  background: linear-gradient(135deg, rgba(0, 204, 204, 0.2), rgba(0, 204, 204, 0.1));
+  color: var(--cyber-cyan);
+  border-bottom: 2px solid var(--cyber-cyan);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: var(--forge-glow);
+  letter-spacing: 1.5px;
+  text-shadow:
+    0 0 8px rgba(0, 204, 204, 0.6),
+    0 0 15px rgba(0, 204, 204, 0.3);
+  font-size: 0.85em;
 }
 
 .md-typeset table:not([class]) td {
-  border-bottom: 1px solid rgba(255, 102, 0, 0.2);
-  color: #ffcc99;
+  border-bottom: 1px solid rgba(0, 204, 204, 0.15);
+  color: #b89b7f;
 }
 
 .md-typeset table:not([class]) tr:hover {
-  background: linear-gradient(90deg, rgba(255, 102, 0, 0.2), rgba(255, 51, 0, 0.1));
+  background: linear-gradient(90deg, rgba(0, 204, 204, 0.15), rgba(0, 204, 204, 0.05));
 }
 
-/* Heat Shimmer Effects (Subtle CRT-like) */
-@keyframes heat-shimmer {
+/* Atmospheric Effects */
+@keyframes scanline-drift {
   0%, 100% { background-position: 0 0; }
-  50% { background-position: 100px 100px; }
+  50% { background-position: 50px 50px; }
 }
 
-@keyframes heat-wave {
-  0%, 100% { opacity: 0.03; }
-  50% { opacity: 0.06; }
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.04; }
 }
 
-@keyframes forge-pulse {
-  0%, 100% { opacity: 0.95; }
+@keyframes content-glow {
+  0%, 100% { opacity: 0.98; }
   50% { opacity: 1; }
 }
 
@@ -415,7 +493,7 @@ body::before {
   position: relative;
 }
 
-/* Heat Shimmer Overlay - Subtle */
+/* Subtle Scanline Overlay */
 .md-main::before {
   content: "";
   position: fixed;
@@ -425,18 +503,16 @@ body::before {
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(255, 102, 0, 0.02) 0px,
+    rgba(0, 204, 204, 0.015) 0px,
     transparent 2px,
-    transparent 4px,
-    rgba(255, 153, 51, 0.01) 6px,
-    transparent 8px
+    transparent 4px
   );
   pointer-events: none;
   z-index: 1000;
-  animation: heat-shimmer 15s ease-in-out infinite, heat-wave 5s ease-in-out infinite;
+  animation: scanline-drift 20s ease-in-out infinite, ambient-pulse 8s ease-in-out infinite;
 }
 
-/* Forge Glow Vignette */
+/* Dark Vignette */
 .md-main::after {
   content: "";
   position: fixed;
@@ -445,37 +521,37 @@ body::before {
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    ellipse at bottom,
+    ellipse at center,
     transparent 0%,
-    transparent 40%,
-    rgba(26, 10, 0, 0.3) 70%,
-    rgba(13, 5, 0, 0.6) 100%
+    transparent 50%,
+    rgba(0, 0, 0, 0.4) 85%,
+    rgba(0, 0, 0, 0.7) 100%
   );
   pointer-events: none;
   z-index: 999;
 }
 
-/* Content Forge Pulse */
+/* Subtle Content Pulse */
 .md-content__inner {
-  animation: forge-pulse 4s ease-in-out infinite;
+  animation: content-glow 6s ease-in-out infinite;
 }
 
-/* Ember Glow on Text */
+/* Subtle Cyber Glow on Text */
 .md-typeset {
-  text-shadow: 0 0 1px rgba(255, 153, 51, 0.2);
+  text-shadow: 0 0 1px rgba(0, 204, 204, 0.1);
 }
 
-/* Heat Distortion on Hover for Headers */
-@keyframes heat-distort {
+/* Digital Glitch on Hover */
+@keyframes cyber-glitch {
   0%, 100% { transform: translate(0); filter: blur(0px); }
-  25% { transform: translate(-1px, 1px); filter: blur(0.3px); }
-  50% { transform: translate(1px, -1px); filter: blur(0.5px); }
-  75% { transform: translate(-1px, -1px); filter: blur(0.3px); }
+  25% { transform: translate(-0.5px, 0.5px); }
+  50% { transform: translate(0.5px, -0.5px); }
+  75% { transform: translate(-0.5px, -0.5px); }
 }
 
 .md-typeset h1:hover,
 .md-typeset h2:hover {
-  animation: heat-distort 0.6s ease-in-out;
+  animation: cyber-glitch 0.3s ease-in-out;
 }
 
 /* BLACKSMITH FORGE WITH CYBERPUNK OVERLAY */
@@ -577,269 +653,77 @@ body::before {
   50%, 99% { opacity: 0.3; }
 }
 
-.forge-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 0;
-  perspective: 1200px;
-  min-height: 450px;
-  padding: 2rem 0;
-  /* Temporary debug background - remove once working */
-  background: rgba(50, 30, 20, 0.3);
-  border: 1px solid rgba(255, 102, 0, 0.2);
-}
-
-.forge {
+/* FORGE HERO IMAGE */
+.forge-hero {
   position: relative;
-  width: 500px;
-  height: 350px;
-  transform: rotateX(5deg);
-  z-index: 10;
-  /* Ensure forge has its own stacking context */
-  transform-style: preserve-3d;
-}
-
-/* Forge Structure */
-.forge-body {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 400px;
-  height: 200px;
-  background: linear-gradient(135deg, #3a2a1a 0%, #2a1a0a 50%, #1a0a00 100%);
-  border: 4px solid #885522;
-  border-radius: 10px 10px 5px 5px;
+  margin: 3rem 0;
+  overflow: hidden;
+  border-radius: 8px;
   box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.9),
-    inset 0 -50px 100px rgba(255, 102, 0, 0.4),
-    0 0 50px rgba(255, 102, 0, 0.3),
-    inset 0 5px 20px rgba(255, 60, 0, 0.2);
-  z-index: 1;
-  /* Ensure visibility */
-  opacity: 1;
-  will-change: transform;
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(255, 102, 0, 0.4),
+    inset 0 0 100px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 102, 0, 0.3);
 }
 
-/* Forge Opening/Fire Bed */
-.forge-fire {
+.forge-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(1.05) contrast(1.1) saturate(1.15);
+  animation: forge-glow 8s ease-in-out infinite;
+}
+
+@keyframes forge-glow {
+  0%, 100% {
+    filter: brightness(1.05) contrast(1.1) saturate(1.15);
+  }
+  50% {
+    filter: brightness(1.1) contrast(1.15) saturate(1.2);
+  }
+}
+
+/* Cyberpunk Scanline Overlay */
+.forge-overlay {
   position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 320px;
-  height: 140px;
-  background: radial-gradient(ellipse at bottom, #fffacd 0%, #ffcc66 15%, #ff8833 30%, #ff6600 50%, #ff3300 75%, #cc0000 100%);
-  border-radius: 50%;
-  animation: fire-flicker 3s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    transparent 2px,
+    transparent 4px
+  );
   z-index: 2;
-  filter: blur(3px);
-  /* Strong glow for visibility */
-  box-shadow:
-    0 0 60px rgba(255, 102, 0, 0.8),
-    0 0 100px rgba(255, 60, 0, 0.5),
-    inset 0 0 30px rgba(255, 250, 205, 0.6);
-  opacity: 0.95;
-  will-change: transform, filter;
 }
 
-/* Hot Metal Being Forged */
-.forge-metal {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-15deg);
-  width: 180px;
-  height: 25px;
-  background: linear-gradient(135deg, #ffcc66 0%, #ff6600 50%, #ff3300 100%);
-  border-radius: 3px;
-  animation: metal-heat-pulse 2.5s ease-in-out infinite;
-  z-index: 5;
-  box-shadow:
-    0 0 30px rgba(255, 102, 0, 0.9),
-    0 0 50px rgba(255, 51, 0, 0.7),
-    inset 0 0 15px rgba(255, 250, 205, 0.5);
-  opacity: 1;
-}
-
-/* Tongs Holding Metal */
-.forge-tongs {
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 40px;
-  z-index: 4;
-}
-
-.tong-arm {
-  position: absolute;
-  width: 100px;
-  height: 5px;
-  background: linear-gradient(90deg, #888 0%, #555 50%, #333 100%);
-  border-radius: 2px;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.6),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-
-.tong-arm.left {
-  left: 0;
-  transform: rotate(-20deg);
-  transform-origin: right center;
-}
-
-.tong-arm.right {
-  right: 0;
-  transform: rotate(20deg);
-  transform-origin: left center;
-}
-
-/* CYBERPUNK OVERLAY ELEMENTS */
-
-/* Holographic Scan Lines */
-.forge-holo-scan {
+.forge-scanline {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 10;
-  pointer-events: none;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 255, 0.5) 50%, transparent 100%);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  animation: scanline-sweep 6s ease-in-out infinite;
+  opacity: 0.6;
 }
 
-.holo-line {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--cyber-cyan) 50%, transparent 100%);
-  box-shadow: 0 0 10px var(--cyber-cyan);
-  animation: holo-scan 4s ease-in-out infinite;
-  opacity: 0.7;
-}
-
-.holo-line:nth-child(2) {
-  animation-delay: 2s;
-}
-
-/* Digital HUD Overlay */
-.forge-hud {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  color: var(--cyber-cyan);
-  text-shadow: 0 0 5px var(--cyber-cyan);
-  z-index: 15;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid var(--cyber-cyan);
-  border-radius: 3px;
-  box-shadow: 0 0 15px rgba(0, 204, 204, 0.3), inset 0 0 20px rgba(0, 204, 204, 0.05);
-}
-
-.hud-label {
-  color: rgba(0, 204, 204, 0.7);
-  font-size: 9px;
-  letter-spacing: 1px;
-}
-
-.hud-value {
-  color: var(--forge-orange);
-  font-weight: bold;
-  text-shadow: 0 0 5px var(--forge-orange);
-}
-
-.hud-status {
-  color: var(--cyber-green);
-  animation: hud-blink 2s step-end infinite;
-}
-
-/* Data Stream Effects */
-.forge-data-stream {
-  position: absolute;
-  left: 30px;
-  top: 0;
-  height: 100%;
-  width: 1px;
-  z-index: 12;
-  overflow: hidden;
-}
-
-.data-bit {
-  position: absolute;
-  width: 2px;
-  height: 8px;
-  background: var(--cyber-cyan);
-  box-shadow: 0 0 5px var(--cyber-cyan);
-  animation: data-stream 2s linear infinite;
-}
-
-.data-bit:nth-child(1) { animation-delay: 0s; }
-.data-bit:nth-child(2) { animation-delay: 0.5s; }
-.data-bit:nth-child(3) { animation-delay: 1s; }
-.data-bit:nth-child(4) { animation-delay: 1.5s; }
-
-/* Cyber Grid Overlay */
-.forge-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    repeating-linear-gradient(0deg, transparent 0px, rgba(0, 204, 204, 0.03) 1px, transparent 2px, transparent 20px),
-    repeating-linear-gradient(90deg, transparent 0px, rgba(0, 204, 204, 0.03) 1px, transparent 2px, transparent 20px);
-  z-index: 8;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-/* Corner Brackets (Cyber Frame) */
-.forge-bracket {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--cyber-cyan);
-  z-index: 20;
-  pointer-events: none;
-  box-shadow: 0 0 10px rgba(0, 204, 204, 0.3);
-}
-
-.forge-bracket.top-left {
-  top: 10px;
-  left: 10px;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 3px 0 0 0;
-}
-
-.forge-bracket.top-right {
-  top: 10px;
-  right: 10px;
-  border-left: none;
-  border-bottom: none;
-  border-radius: 0 3px 0 0;
-}
-
-.forge-bracket.bottom-left {
-  bottom: 10px;
-  left: 10px;
-  border-right: none;
-  border-top: none;
-  border-radius: 0 0 0 3px;
-}
-
-.forge-bracket.bottom-right {
-  bottom: 10px;
-  right: 10px;
-  border-left: none;
-  border-top: none;
-  border-radius: 0 0 3px 0;
+@keyframes scanline-sweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
 /* ==================================

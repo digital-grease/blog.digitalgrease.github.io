@@ -17,45 +17,10 @@ hide:
 
 </div>
 
-<div class="forge-container">
-  <div class="forge">
-    <!-- Physical Forge Elements -->
-    <div class="forge-body"></div>
-    <div class="forge-fire"></div>
-    <div class="forge-metal"></div>
-    <div class="forge-tongs">
-      <div class="tong-arm left"></div>
-      <div class="tong-arm right"></div>
-    </div>
-
-    <!-- Cyberpunk Overlay Elements -->
-    <div class="forge-grid"></div>
-
-    <div class="forge-holo-scan">
-      <div class="holo-line"></div>
-      <div class="holo-line"></div>
-    </div>
-
-    <div class="forge-data-stream">
-      <div class="data-bit"></div>
-      <div class="data-bit"></div>
-      <div class="data-bit"></div>
-      <div class="data-bit"></div>
-    </div>
-
-    <div class="forge-hud">
-      <div class="hud-label">TEMP</div>
-      <div class="hud-value">2,300°F</div>
-      <div class="hud-label">STATUS</div>
-      <div class="hud-status">● FORGING</div>
-      <div class="hud-label">SYS</div>
-      <div class="hud-value">ONLINE</div>
-    </div>
-
-    <div class="forge-bracket top-left"></div>
-    <div class="forge-bracket top-right"></div>
-    <div class="forge-bracket bottom-left"></div>
-    <div class="forge-bracket bottom-right"></div>
+<div class="forge-hero">
+  <img src="assets/technoforge.jpg" alt="The Forge - Where code is forged in fire" class="forge-image">
+  <div class="forge-overlay">
+    <div class="forge-scanline"></div>
   </div>
 </div>
 
