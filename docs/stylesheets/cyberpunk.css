@@ -373,28 +373,49 @@ body::before {
 
 /* Sidebar */
 .md-sidebar {
-  background: rgba(15, 12, 10, 0.95);
-  border-right: 1px solid rgba(0, 204, 204, 0.2);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 6, 0.98) 0%,
+    rgba(15, 10, 8, 0.98) 50%,
+    rgba(20, 12, 8, 0.98) 100%
+  );
+  border-right: 2px solid rgba(0, 204, 204, 0.4);
   box-shadow:
-    2px 0 20px rgba(0, 0, 0, 0.8),
-    inset -1px 0 0 rgba(0, 204, 204, 0.1);
+    2px 0 30px rgba(0, 0, 0, 0.9),
+    inset -1px 0 0 rgba(0, 204, 204, 0.2),
+    inset 0 0 60px rgba(255, 102, 0, 0.05);
   z-index: 3;
   position: relative;
+  backdrop-filter: blur(10px);
 }
 
 /* Ensure sidebar is above the overlay when expanded */
 .md-sidebar--primary {
-  z-index: 5;
+  z-index: 9999 !important;
+  position: relative !important;
 }
 
 .md-sidebar--secondary {
   z-index: 4;
 }
 
+/* Ensure sidebar navigation is always visible */
+.md-sidebar__inner {
+  height: 100%;
+  position: relative !important;
+  z-index: 10000 !important;
+}
+
+.md-nav--primary {
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 10001 !important;
+}
+
 /* Page overlay when sidebar is open */
 .md-overlay {
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
+  z-index: 50 !important;
   backdrop-filter: blur(4px);
 }
 
@@ -408,31 +429,50 @@ body::before {
 }
 
 .md-nav__link {
-  color: #c9ad8f;
+  color: var(--forge-amber);
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   z-index: 10;
   pointer-events: auto;
   padding: 0.625rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 0.2rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-left: 2px solid transparent;
 }
 
 .md-nav__link:hover {
   color: var(--cyber-cyan);
   text-shadow:
-    0 0 8px rgba(0, 204, 204, 0.6),
-    0 0 15px rgba(0, 204, 204, 0.3);
-  background: rgba(0, 204, 204, 0.05);
+    0 0 10px rgba(0, 204, 204, 0.8),
+    0 0 20px rgba(0, 204, 204, 0.4);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 204, 204, 0.15) 0%,
+    rgba(0, 204, 204, 0.08) 100%
+  );
+  border-left: 2px solid var(--cyber-cyan);
+  box-shadow:
+    inset 0 0 20px rgba(0, 204, 204, 0.1),
+    0 0 10px rgba(0, 204, 204, 0.2);
 }
 
 .md-nav__link--active {
-  color: var(--cyber-cyan);
+  color: var(--forge-orange);
   font-weight: 600;
   text-shadow:
-    0 0 10px rgba(0, 204, 204, 0.8),
-    0 0 20px rgba(0, 204, 204, 0.4);
-  background: rgba(0, 204, 204, 0.12);
-  border-left: 3px solid var(--cyber-cyan);
+    0 0 10px rgba(255, 102, 0, 0.8),
+    0 0 20px rgba(255, 102, 0, 0.4);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 102, 0, 0.2) 0%,
+    rgba(255, 102, 0, 0.1) 100%
+  );
+  border-left: 3px solid var(--forge-orange);
+  box-shadow:
+    inset 0 0 25px rgba(255, 102, 0, 0.15),
+    0 0 15px rgba(255, 102, 0, 0.3);
 }
 
 /* Expandable navigation toggles */
@@ -455,20 +495,29 @@ body::before {
 
 /* Ensure nested navigation is visible and clickable */
 .md-nav--secondary {
-  background: rgba(10, 8, 6, 0.8);
-  border-left: 2px solid rgba(0, 204, 204, 0.15);
-  margin-left: 0.4rem;
+  background: rgba(5, 4, 3, 0.5);
+  border-left: 2px solid rgba(255, 102, 0, 0.2);
+  margin-left: 0.6rem;
+  padding-left: 0.4rem;
+  border-radius: 4px;
 }
 
 .md-nav--secondary .md-nav__link {
-  color: #b89b7f;
-  font-size: 0.9em;
+  color: #d4b5a0;
+  font-size: 0.88em;
   padding: 0.5rem 0.8rem;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .md-nav--secondary .md-nav__link:hover {
-  color: var(--forge-orange);
-  background: rgba(255, 102, 0, 0.08);
+  color: var(--forge-yellow);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 153, 51, 0.15) 0%,
+    rgba(255, 102, 0, 0.08) 100%
+  );
+  text-shadow: 0 0 8px rgba(255, 153, 51, 0.6);
+  border-left: 2px solid var(--forge-amber);
 }
 
 /* Navigation titles */
@@ -476,10 +525,30 @@ body::before {
   color: var(--cyber-cyan);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.8em;
-  padding: 1rem 0.8rem 0.5rem;
-  background: transparent;
+  letter-spacing: 2px;
+  font-size: 0.75em;
+  padding: 1rem 0.8rem 0.8rem;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 204, 204, 0.08) 0%,
+    transparent 100%
+  );
+  border-bottom: 2px solid rgba(0, 204, 204, 0.3);
+  text-shadow:
+    0 0 10px rgba(0, 204, 204, 0.6),
+    0 0 20px rgba(0, 204, 204, 0.3);
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 204, 204, 0.15);
+}
+
+/* Hide the back/home button in nav title - it's redundant */
+.md-nav__title .md-nav__button {
+  display: none;
+}
+
+/* Style the title text properly */
+.md-nav__title .md-ellipsis {
+  color: var(--cyber-cyan) !important;
 }
 
 /* Footer */
@@ -972,39 +1041,219 @@ body::before {
 
   /* Force sidebars to not take up layout space */
   .md-sidebar--primary {
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform 0.25s;
-    z-index: 4;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 18rem !important;
+    min-width: 18rem !important;
+    max-width: 18rem !important;
+    height: 100vh !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 9999 !important;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 8, 6, 0.98) 0%,
+      rgba(15, 10, 8, 0.98) 50%,
+      rgba(20, 12, 8, 0.98) 100%
+    ) !important;
+    border-right: 2px solid rgba(0, 204, 204, 0.5) !important;
+    box-shadow:
+      4px 0 40px rgba(0, 0, 0, 0.9),
+      inset -2px 0 0 rgba(0, 204, 204, 0.2),
+      inset 0 0 80px rgba(255, 102, 0, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
   }
 
-  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
-    transform: translateX(0);
+  /* Ensure overlay is below sidebar on mobile */
+  .md-overlay {
+    z-index: 50 !important;
+    position: fixed !important;
+  }
+
+  /* Ensure container doesn't create stacking context issues */
+  .md-container {
+    position: relative !important;
+    z-index: auto !important;
+  }
+
+  [data-md-toggle="drawer"]:checked ~ .md-container {
+    z-index: 10000 !important;
+  }
+
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary,
+  [data-md-toggle="drawer"]:checked ~ * .md-sidebar--primary {
+    transform: translateX(0) !important;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.8) !important;
+    z-index: 10001 !important;
+    position: fixed !important;
+  }
+
+  /* Force the overlay behind when drawer is open */
+  [data-md-toggle="drawer"]:checked ~ .md-overlay,
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-overlay {
+    z-index: 100 !important;
+  }
+
+  /* Ensure sidebar content is visible and properly styled */
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    overflow-y: auto;
+    background: transparent;
+    height: 100%;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner {
+    width: 100% !important;
+    padding: 1rem;
+  }
+
+  .md-sidebar--primary .md-nav {
+    background: transparent;
+    padding: 1rem;
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .md-sidebar--primary .md-nav--primary {
+    visibility: visible !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .md-sidebar--primary .md-nav__list {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .md-sidebar--primary .md-nav__item {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.25rem 0;
+  }
+
+  .md-sidebar--primary .md-nav__link {
+    display: block !important;
+    width: 100% !important;
+    color: var(--forge-amber) !important;
+    font-size: 0.92rem !important;
+    padding: 0.75rem 1rem !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 4px !important;
+    margin-bottom: 0.3rem !important;
+    border-left: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .md-sidebar--primary .md-nav__link:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 204, 204, 0.2) 0%,
+      rgba(0, 204, 204, 0.1) 100%
+    ) !important;
+    color: var(--cyber-cyan) !important;
+    border-left: 2px solid var(--cyber-cyan) !important;
+    text-shadow:
+      0 0 10px rgba(0, 204, 204, 0.8),
+      0 0 20px rgba(0, 204, 204, 0.4) !important;
+    box-shadow:
+      inset 0 0 20px rgba(0, 204, 204, 0.1),
+      0 0 10px rgba(0, 204, 204, 0.2) !important;
+  }
+
+  .md-sidebar--primary .md-nav__link--active {
+    color: var(--forge-orange) !important;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 102, 0, 0.25) 0%,
+      rgba(255, 102, 0, 0.12) 100%
+    ) !important;
+    border-left: 3px solid var(--forge-orange) !important;
+    text-shadow:
+      0 0 10px rgba(255, 102, 0, 0.9),
+      0 0 20px rgba(255, 102, 0, 0.5) !important;
+    box-shadow:
+      inset 0 0 25px rgba(255, 102, 0, 0.15),
+      0 0 15px rgba(255, 102, 0, 0.3) !important;
+  }
+
+  .md-sidebar--primary .md-nav__title {
+    color: var(--cyber-cyan) !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    padding: 1.2rem 1rem 0.8rem !important;
+    border-bottom: 2px solid rgba(0, 204, 204, 0.4) !important;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 204, 204, 0.12) 0%,
+      transparent 100%
+    ) !important;
+    text-shadow:
+      0 0 12px rgba(0, 204, 204, 0.8),
+      0 0 24px rgba(0, 204, 204, 0.4) !important;
+    margin-bottom: 0.8rem !important;
+    box-shadow: 0 2px 15px rgba(0, 204, 204, 0.2) !important;
+  }
+
+  /* Hide redundant home button in mobile sidebar */
+  .md-sidebar--primary .md-nav__title .md-nav__button {
+    display: none !important;
+  }
+
+  /* Ensure title text is styled properly */
+  .md-sidebar--primary .md-nav__title .md-ellipsis {
+    color: var(--cyber-cyan) !important;
   }
 
   /* Full-width content layout */
   .md-content {
     margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     max-width: 100% !important;
+    width: 100% !important;
   }
 
   .md-content__inner {
     margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding: 0.8rem !important;
   }
 
   .md-typeset {
     padding: 0 !important;
+    margin: 0 !important;
   }
 
   /* Ensure main container is full width */
   .md-main {
-    flex: 1;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .md-main__inner {
     margin: 0.5rem 0.8rem !important;
+    margin-left: 0.8rem !important;
+    margin-right: 0.8rem !important;
+    max-width: 100%;
     border-radius: 4px;
+  }
+
+  /* Ensure container uses full width */
+  .md-container {
+    max-width: 100%;
+  }
+
+  /* Remove any grid gaps that might cause offset */
+  .md-grid {
+    max-width: 100%;
+    margin: 0;
   }
 
   /* Reduce header text size */
