@@ -65,10 +65,10 @@ This quote captures a fundamental truth about security and systems thinking. Und
 
 ## Connect
 
-Find more at [digitalgrease.dev](https://digitalgrease.dev) or check out the code on [GitHub](https://github.com/digitalgrease).
+Find more at [digitalgrease.dev](https://digitalgrease.dev)
 
 ---
 
 <center>
-*"The best way to learn is to do, and the best way to remember is to teach."*
+*"The future is already here — it’s just not evenly distributed.” — William Gibson*
 </center>

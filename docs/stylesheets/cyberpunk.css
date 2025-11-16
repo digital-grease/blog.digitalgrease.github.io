@@ -74,12 +74,19 @@ body::before {
 /* Header Styling */
 .md-header {
   background: rgba(10, 8, 6, 0.98);
-  backdrop-filter: blur(15px);
+  /* backdrop-filter removed for mobile - creates containing block */
   border-bottom: 2px solid rgba(0, 204, 204, 0.4);
   box-shadow:
     0 0 30px rgba(0, 204, 204, 0.2),
     0 4px 20px rgba(0, 0, 0, 0.8),
     inset 0 -1px 0 rgba(0, 204, 204, 0.3);
+}
+
+/* Desktop-only: backdrop-filter for header */
+@media screen and (min-width: 76.25em) {
+  .md-header {
+    backdrop-filter: blur(15px);
+  }
 }
 
 .md-header__title {
@@ -120,7 +127,7 @@ body::before {
 
 .md-main__inner {
   background: rgba(10, 8, 6, 0.85);
-  backdrop-filter: blur(8px);
+  /* backdrop-filter removed for mobile - creates containing block */
   border: 1px solid rgba(0, 204, 204, 0.2);
   border-radius: 8px;
   margin-top: 1rem;
@@ -129,6 +136,13 @@ body::before {
     0 0 80px rgba(255, 102, 0, 0.15),
     inset 0 0 60px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(0, 204, 204, 0.1);
+}
+
+/* Desktop-only: backdrop-filter for main content */
+@media screen and (min-width: 76.25em) {
+  .md-main__inner {
+    backdrop-filter: blur(8px);
+  }
 }
 
 /* Typography - Cyberpunk Headers */
@@ -384,32 +398,65 @@ body::before {
     2px 0 30px rgba(0, 0, 0, 0.9),
     inset -1px 0 0 rgba(0, 204, 204, 0.2),
     inset 0 0 60px rgba(255, 102, 0, 0.05);
-  z-index: 3;
-  position: relative;
+  /* backdrop-filter removed - creates containing block for position:fixed */
+}
+
+/* Desktop-only: position and z-index for base sidebar */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar {
+    z-index: 3;
+    position: relative;
+  }
+}
+
+/* Apply backdrop-filter only to secondary sidebar on desktop */
+.md-sidebar--secondary {
   backdrop-filter: blur(10px);
 }
 
-/* Ensure sidebar is above the overlay when expanded */
-.md-sidebar--primary {
-  z-index: 9999 !important;
-  position: relative !important;
+/* Desktop-only sidebar positioning */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    z-index: 9999 !important;
+    position: relative !important;
+  }
+
+  /* Ensure sidebar navigation is always visible on desktop */
+  .md-sidebar__inner {
+    height: 100%;
+    position: relative !important;
+    z-index: 10000 !important;
+  }
+
+  .md-nav--primary {
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+
+  /* Navigation item positioning on desktop */
+  .md-nav__item {
+    position: relative;
+    z-index: 1;
+  }
+
+  .md-nav__link {
+    position: relative;
+    z-index: 10;
+  }
+
+  .md-nav__toggle {
+    position: relative;
+    z-index: 15;
+  }
+
+  .md-nav__button {
+    z-index: 20;
+  }
 }
 
 .md-sidebar--secondary {
   z-index: 4;
-}
-
-/* Ensure sidebar navigation is always visible */
-.md-sidebar__inner {
-  height: 100%;
-  position: relative !important;
-  z-index: 10000 !important;
-}
-
-.md-nav--primary {
-  visibility: visible !important;
-  position: relative !important;
-  z-index: 10001 !important;
 }
 
 /* Page overlay when sidebar is open */
@@ -424,16 +471,14 @@ body::before {
 }
 
 .md-nav__item {
-  position: relative;
-  z-index: 1;
+  /* position and z-index moved to desktop-only media query */
 }
 
 .md-nav__link {
   color: var(--forge-amber);
   transition: all 0.3s ease;
   cursor: pointer;
-  position: relative;
-  z-index: 10;
+  /* position and z-index moved to desktop-only media query */
   pointer-events: auto;
   padding: 0.625rem 0.8rem;
   border-radius: 4px;
@@ -477,8 +522,7 @@ body::before {
 
 /* Expandable navigation toggles */
 .md-nav__toggle {
-  position: relative;
-  z-index: 15;
+  /* position and z-index moved to desktop-only media query */
   cursor: pointer;
 }
 
@@ -490,7 +534,7 @@ body::before {
 .md-nav__button {
   cursor: pointer;
   pointer-events: auto;
-  z-index: 20;
+  /* z-index moved to desktop-only media query */
 }
 
 /* Ensure nested navigation is visible and clickable */
@@ -549,6 +593,16 @@ body::before {
 /* Style the title text properly */
 .md-nav__title .md-ellipsis {
   color: var(--cyber-cyan) !important;
+}
+
+/* Hide the duplicate current page link in the navigation list */
+.md-nav--primary .md-nav__item--active > .md-nav__link {
+  display: none !important;
+}
+
+/* Also hide it in the primary navigation when it matches the title */
+.md-nav__list .md-nav__item--active.md-nav__item--nested > .md-nav__link {
+  display: none !important;
 }
 
 /* Footer */
@@ -638,8 +692,11 @@ body::before {
   50% { opacity: 1; }
 }
 
-.md-main {
-  position: relative;
+/* Desktop-only: position for .md-main */
+@media screen and (min-width: 76.25em) {
+  .md-main {
+    position: relative;
+  }
 }
 
 /* Subtle Scanline Overlay */
@@ -1040,17 +1097,17 @@ body::before {
   }
 
   /* Force sidebars to not take up layout space */
+  .md-sidebar.md-sidebar--primary,
   .md-sidebar--primary {
     position: fixed !important;
     top: 0 !important;
-    left: 0 !important;
+    left: -18rem !important;
     width: 18rem !important;
     min-width: 18rem !important;
     max-width: 18rem !important;
     height: 100vh !important;
-    transform: translateX(-100%) !important;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    z-index: 9999 !important;
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 99999 !important;
     background: linear-gradient(
       180deg,
       rgba(10, 8, 6, 0.98) 0%,
@@ -1062,7 +1119,10 @@ body::before {
       4px 0 40px rgba(0, 0, 0, 0.9),
       inset -2px 0 0 rgba(0, 204, 204, 0.2),
       inset 0 0 80px rgba(255, 102, 0, 0.08) !important;
-    backdrop-filter: blur(12px) !important;
+    /* NOTE: backdrop-filter removed - it creates a containing block for position:fixed */
+    /* NOTE: Using left instead of transform to avoid creating containing block */
+    /* Override any inherited transform */
+    transform: none !important;
   }
 
   /* Ensure overlay is below sidebar on mobile */
@@ -1073,26 +1133,35 @@ body::before {
 
   /* Ensure container doesn't create stacking context issues */
   .md-container {
-    position: relative !important;
+    position: static !important;
     z-index: auto !important;
   }
 
+  /* CRITICAL: Don't set z-index on container - it creates stacking context that traps sidebar */
   [data-md-toggle="drawer"]:checked ~ .md-container {
-    z-index: 10000 !important;
+    position: static !important;
+    z-index: auto !important;
   }
 
-  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary,
-  [data-md-toggle="drawer"]:checked ~ * .md-sidebar--primary {
-    transform: translateX(0) !important;
-    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.8) !important;
-    z-index: 10001 !important;
-    position: fixed !important;
+  /* When drawer opens, just slide in - z-index already set above */
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar.md-sidebar--primary,
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    left: 0 !important;
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.9) !important;
+    z-index: 99999 !important;
   }
 
-  /* Force the overlay behind when drawer is open */
+  /* Overlay must be high enough to cover content but below sidebar */
   [data-md-toggle="drawer"]:checked ~ .md-overlay,
   [data-md-toggle="drawer"]:checked ~ .md-container .md-overlay {
-    z-index: 100 !important;
+    z-index: 99998 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* Ensure header doesn't block overlay clicks */
+  [data-md-toggle="drawer"]:checked ~ .md-header {
+    z-index: 99997 !important;
   }
 
   /* Ensure sidebar content is visible and properly styled */
@@ -1207,6 +1276,76 @@ body::before {
   /* Ensure title text is styled properly */
   .md-sidebar--primary .md-nav__title .md-ellipsis {
     color: var(--cyber-cyan) !important;
+  }
+
+  /* Hide duplicate current page link in mobile navigation */
+  .md-sidebar--primary .md-nav--primary .md-nav__item--active > .md-nav__link {
+    display: none !important;
+  }
+
+  .md-sidebar--primary .md-nav__list .md-nav__item--active.md-nav__item--nested > .md-nav__link {
+    display: none !important;
+  }
+
+  /* Ensure nested navigation stays within sidebar bounds */
+  .md-sidebar--primary .md-nav {
+    position: static !important;
+    transform: none !important;
+  }
+
+  /* Hide nested navigation by default */
+  .md-sidebar--primary .md-nav__item .md-nav {
+    display: none !important;
+  }
+
+  /* Show nested navigation when toggle is checked */
+  .md-sidebar--primary .md-nav__toggle:checked ~ .md-nav {
+    display: block !important;
+    position: static !important;
+    transform: none !important;
+    margin-left: 0.8rem !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+    padding: 0.4rem 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    background: rgba(5, 4, 3, 0.4) !important;
+    border-left: 2px solid rgba(255, 102, 0, 0.3) !important;
+    border-radius: 4px !important;
+  }
+
+  /* Also handle secondary nav styling */
+  .md-sidebar--primary .md-nav--secondary {
+    position: static !important;
+    transform: none !important;
+    margin-left: 0.8rem !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+    padding: 0.4rem 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    background: rgba(5, 4, 3, 0.4) !important;
+    border-left: 2px solid rgba(255, 102, 0, 0.3) !important;
+    border-radius: 4px !important;
+  }
+
+  /* Style nested navigation items */
+  .md-sidebar--primary .md-nav--secondary .md-nav__link,
+  .md-sidebar--primary .md-nav__item .md-nav .md-nav__link {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 0.8rem 0.6rem 1.2rem !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    color: rgba(212, 181, 160, 0.9) !important;
+  }
+
+  .md-sidebar--primary .md-nav--secondary .md-nav__link:hover,
+  .md-sidebar--primary .md-nav__item .md-nav .md-nav__link:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 153, 51, 0.2) 0%,
+      rgba(255, 102, 0, 0.1) 100%
+    ) !important;
+    color: var(--forge-yellow) !important;
   }
 
   /* Full-width content layout */
