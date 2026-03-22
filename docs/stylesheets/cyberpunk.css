@@ -1159,9 +1159,9 @@ body::before {
     cursor: pointer !important;
   }
 
-  /* Ensure header doesn't block overlay clicks */
+  /* Header must be above overlay so hamburger stays clickable to close drawer */
   [data-md-toggle="drawer"]:checked ~ .md-header {
-    z-index: 99997 !important;
+    z-index: 100000 !important;
   }
 
   /* Ensure sidebar content is visible and properly styled */

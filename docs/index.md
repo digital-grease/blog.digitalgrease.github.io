@@ -58,17 +58,19 @@ hide:
 
 ## Latest Posts
 
-Looking for the latest insights on cybersecurity, software development, and technology? Check out the [Blog](/posts/) section for recent articles.
+<div class="grid cards" markdown>
 
-Explore posts by [category](/tags/) or browse the [archive](/posts/archive/) to find specific content.
+-   **[Welcome to Digital Grease Blog](/welcome-to-digital-grease/)**
 
-<div class="grid" markdown>
+    ---
 
-!!! note "Stay Updated"
+    The inaugural post — what this blog is about, what to expect, and the philosophy behind it.
 
-    New posts are added regularly. Follow along as we explore the ever-evolving landscape of technology and security.
+    *Nov 2025 · digitalgrease*
 
 </div>
+
+Explore posts by [tag](/tags/) or browse the [archive](/archive/2025/) to find specific content.
 
 ---
 

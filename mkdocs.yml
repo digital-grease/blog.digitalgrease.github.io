@@ -127,10 +127,6 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/cyberpunk.css
 
-# Additional JavaScript
-extra_javascript:
-  - javascripts/sharing.js
-
 # Extra Configuration
 extra:
   social:
@@ -161,5 +157,5 @@ copyright: Copyright &copy; 2025 Digital Grease
 nav:
   - Home: index.md
   - Blog: posts/
-  - Categories: tags.md
+  - Tags: tags.md
   - About: about.md
