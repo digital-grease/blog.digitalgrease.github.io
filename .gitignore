@@ -24,6 +24,10 @@ ENV/
 .DS_Store
 Thumbs.db
 
+# Dev workflow
+.devloop/
+.claude/
+
 # Local testing
 .pytest_cache/
 htmlcov/

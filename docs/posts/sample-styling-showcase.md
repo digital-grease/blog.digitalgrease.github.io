@@ -9,6 +9,7 @@ tags:
   - sample
   - styling
   - demo
+comments: true
 ---
 
 # Lorem Ipsum: A Comprehensive Styling Showcase

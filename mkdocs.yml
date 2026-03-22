@@ -10,6 +10,7 @@ repo_url: https://github.com/digitalgrease/blog.digitalgrease.github.io
 # Theme Configuration
 theme:
   name: material
+  custom_dir: overrides
   favicon: assets/favicon.png
   logo: assets/favicon.png
 
@@ -71,10 +72,20 @@ plugins:
       authors_file: .authors.yml
       draft: true
       draft_on_serve: true
+      post_readtime: true
       pagination: true
       pagination_per_page: 10
   - tags:
       tags_file: tags.md
+  - rss:
+      match_path: ".*-.*"
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+      image: https://blog.digitalgrease.dev/assets/favicon.png
+      use_git: false
 
 # Extensions
 markdown_extensions:
@@ -115,6 +126,10 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/cyberpunk.css
+
+# Additional JavaScript
+extra_javascript:
+  - javascripts/sharing.js
 
 # Extra Configuration
 extra:

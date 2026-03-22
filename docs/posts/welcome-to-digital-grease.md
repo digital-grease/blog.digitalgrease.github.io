@@ -9,6 +9,7 @@ tags:
   - welcome
   - introduction
   - blog
+comments: true
 ---
 
 # Welcome to Digital Grease Blog

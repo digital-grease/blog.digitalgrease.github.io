@@ -8,6 +8,7 @@ mkdocs-material[blog]>=9.5.0
 # Additional Plugins
 mkdocs-minify-plugin>=0.8.0
 mkdocs-redirects>=1.2.1
+mkdocs-rss-plugin>=1.12.0
 
 # Required for advanced features
 pillow>=10.0.0
