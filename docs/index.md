@@ -28,29 +28,29 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-security:{ .lg .middle } **Security Research**
+-   :material-security:{ .lg .middle } **Security & Hacking**
 
     ---
 
-    Deep dives into vulnerabilities, exploit development, defensive strategies, and security tools.
+    Exploit development, vulnerability research, CTF writeups, and the eternal cat-and-mouse of offense and defense.
 
 -   :material-code-braces:{ .lg .middle } **Development**
 
     ---
 
-    Software engineering practices, code reviews, tooling, and lessons learned from building systems.
+    Software engineering, tooling, and lessons learned from building (and occasionally destroying) systems.
 
--   :material-brain:{ .lg .middle } **Learning**
-
-    ---
-
-    Tutorials, challenges, CTF writeups, and educational content for the curious mind.
-
--   :material-wrench:{ .lg .middle } **Breaking & Fixing**
+-   :material-barn:{ .lg .middle } **Farm & Land**
 
     ---
 
-    Real-world problem solving, debugging war stories, and the art of making things work.
+    Homesteading, animals, crops, and the slow work of learning to grow things. Analog problems, analog solutions.
+
+-   :material-fire:{ .lg .middle } **Forge & Craft**
+
+    ---
+
+    Blacksmithing, metalwork, woodworking, and making things by hand. The satisfying brutality of physical craft.
 
 </div>
 
