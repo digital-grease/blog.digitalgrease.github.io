@@ -32,3 +32,5 @@ Thumbs.db
 .pytest_cache/
 htmlcov/
 .coverage
+.devloop
+CLAUDE.md

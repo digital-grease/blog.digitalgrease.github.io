@@ -60,7 +60,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   **[Welcome to Digital Grease Blog](/welcome-to-digital-grease/)**
+-   **[Welcome to The Forge](/welcome-to-digital-grease/)**
 
     ---
 
@@ -74,9 +74,9 @@ Explore posts by [tag](/tags/) or browse the [archive](/archive/2025/) to find s
 
 ---
 
-<center>
+<div style="text-align:center" markdown>
 **[Explore the Blog →](/posts/){ .md-button .md-button--primary }**
-</center>
+</div>
 
 <div class="ember-container">
   <div class="ember"></div>
