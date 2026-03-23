@@ -81,4 +81,4 @@ Fauxx is fully open source. The stack is Kotlin + Jetpack Compose + Hilt + Room 
 
 The project is early. The scrapers depend on platform UI that will change. The query banks could be deeper. There's no real-world validation yet of how effectively the noise degrades downstream profiles which is really the most important open question.
 
-The code is at [(https://github.com/digital-grease/fauxx)]. Issues, PRs, and skeptical takes all welcome.
+The code is at [fauxx](https://github.com/digital-grease/fauxx). Issues, PRs, and skeptical takes all welcome.
