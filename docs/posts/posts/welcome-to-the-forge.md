@@ -4,6 +4,7 @@ slug: welcome-to-the-forge
 authors:
   - digitalgrease
 categories:
+  - Digital
   - Making
   - General
 tags:

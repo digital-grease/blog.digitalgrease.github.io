@@ -28,39 +28,17 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-security:{ .lg .middle } **Security & Hacking**
+-   [:material-skull-crossbones:{ .lg .middle } **Digital**](/posts/category/hacking/)
 
     ---
 
-    Exploit development, vulnerability research, CTF writeups, and the eternal cat-and-mouse of offense and defense.
+    Security research, the new, the nifty, the things I find and the things I create.
 
--   :material-code-braces:{ .lg .middle } **Development**
-
-    ---
-
-    Software engineering, tooling, and lessons learned from building (and occasionally destroying) systems.
-
--   :material-barn:{ .lg .middle } **Farm & Land**
+-   [:material-fire:{ .lg .middle } **Analog**](/posts/category/making/)
 
     ---
 
-    Homesteading, animals, crops, and the slow work of learning to grow things. Analog problems, analog solutions.
-
--   :material-fire:{ .lg .middle } **Forge & Craft**
-
-    ---
-
-    Blacksmithing, metalwork, woodworking, and making things by hand. The satisfying brutality of physical craft.
-
-</div>
-
----
-
-<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;" markdown>
-
-**[:material-skull-crossbones: Hacking →](/posts/category/hacking/){ .md-button .md-button--primary }**
-
-**[:material-hammer-wrench: Making →](/posts/category/making/){ .md-button }**
+    Blacksmithing, metalwork, leatherwork, homesteading, and the slow work of learning to grow and make things by hand.
 
 </div>
 
