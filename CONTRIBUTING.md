@@ -1,4 +1,4 @@
-# Contributing to Digital Grease Blog
+# Contributing to the Blog
 
 Thank you for your interest in contributing! Here are some guidelines to help you get started.
 

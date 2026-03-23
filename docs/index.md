@@ -56,7 +56,7 @@ hide:
 
 ---
 
-## Latest Posts
+## Blog Posts
 
 <div class="grid cards" markdown>
 

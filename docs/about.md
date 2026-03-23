@@ -11,7 +11,7 @@ I'm digitalgrease, and welcome to my blog. A blog dedicated to exploring the int
 ### Who is Digital Grease?
 
 I don't have to type it again if you read this:
-[digitalgrease.dev/about]
+[digitalgrease.dev/about](https://digitalgrease.dev/about)
 
 
 
