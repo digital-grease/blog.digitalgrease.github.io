@@ -32,6 +32,18 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Make entire grid card clickable */
+.md-typeset .grid.cards > :is(ul, ol) > li {
+  position: relative;
+}
+
+.md-typeset .grid.cards > :is(ul, ol) > li > p:first-child > a:first-child::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 /* Horizontal rule */
 .md-typeset hr {
   border: none;

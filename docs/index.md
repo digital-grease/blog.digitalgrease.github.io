@@ -28,13 +28,13 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [:material-skull-crossbones:{ .lg .middle } **Digital**](/posts/category/hacking/)
+-   [:material-skull-crossbones:{ .lg .middle } **Digital**](/posts/category/digital/)
 
     ---
 
     Security research, the new, the nifty, the things I find and the things I create.
 
--   [:material-fire:{ .lg .middle } **Analog**](/posts/category/making/)
+-   [:material-fire:{ .lg .middle } **Analog**](/posts/category/analog/)
 
     ---
 
