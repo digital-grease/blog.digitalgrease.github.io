@@ -16,9 +16,9 @@ comments: true
 
 # Can't Stop the Signal. Poison It.
 
-The detail that ad networks and data brokers can extract from a small amount of data is, frankly, terrifying. Give them a handful of search queries, a few page visits, and some location pings — and they don't just know what you're interested in, they know who you are. Your age range, income bracket, health concerns, family situation. The inferences compound on each other, and the surrounding metadata fills in whatever the raw data misses.
+The detail that ad networks and data brokers can extract from a small amount of data is, frankly, terrifying. Give them a handful of search queries, a few page visits, and some location pings and they don't just know what you're interested in, they know who you are. Your age range, income bracket, health concerns, family situation. The inferences compound on each other, and the surrounding metadata fills in whatever the raw data misses.
 
-There's no real defense against this at the collection layer. You can block third-party cookies, run a VPN, use an ad blocker, strip tracking parameters from URLs — and you'll slow them down a little. But the data collection surface is too broad, and the inference models are too good. The moment you do anything online that touches a monetized surface, you're contributing to your profile somewhere. Blocking is a cat-and-mouse game where the cats have a billion dollars and a petabyte of training data.
+There's no real defense against this at the collection layer. You can block third-party cookies, run a VPN, use an ad blocker, strip tracking parameters from URLs, and you'll slow them down a little. But the data collection surface is too broad, and the inference models are too good. The moment you do anything online that touches a monetized surface, you're contributing to your profile somewhere. Blocking is a cat-and-mouse game where the cats have a billion dollars and a petabyte of training data.
 
 So the question becomes: if you can't stop them from collecting, can you make what they collect useless?
 
@@ -30,7 +30,7 @@ That's what Fauxx is built to do.
 
 ## Corrupting the Signal
 
-Your behavioral profile is a signal — a statistical pattern built up over time from your real activity. Inject enough synthetic activity that looks real, and that signal becomes noise. The profile doesn't disappear; it becomes indistinguishable from random demographic data. The model that was supposed to know you now knows nothing useful.
+Your behavioral profile is a signal; a statistical pattern built up over time from your real activity. Inject enough synthetic activity that looks real, and that signal becomes noise. The profile doesn't disappear; it becomes indistinguishable from random demographic data. The model that was supposed to know you now knows nothing useful.
 
 Fauxx runs as a persistent Android foreground service and continuously generates synthetic activity in the background: search queries across major engines, page visits that accumulate tracker cookies, DNS lookups for off-profile domains, ad preference page visits, fake GPS routes, and fingerprint rotation. All of it paced with Poisson-distributed timing and circadian patterns so the activity looks human rather than robotic. At high intensity, it can generate hundreds of actions per day. At low intensity, a quiet background hum.
 
@@ -42,7 +42,7 @@ None of this prevents data collection. It poisons it.
 
 The initial concept was straightforward: fire off random search queries. Trash searches. Enough of them, and the profile degrades.
 
-The problem with fully random noise is that it's still a fingerprint. If your real browsing is highly clustered — say, you mostly read about software development and personal finance — and your synthetic activity is uniformly random, the gap between your real pattern and your noise pattern is itself detectable. A sufficiently sophisticated classifier can eventually separate the signal from the uniform noise and filter it out.
+The problem with fully random noise is that it's still a fingerprint. If your real browsing is highly clustered, say, you mostly read about software development and personal finance — and your synthetic activity is uniformly random, the gap between your real pattern and your noise pattern is itself detectable. A sufficiently sophisticated classifier can eventually separate the signal from the uniform noise and filter it out.
 
 What you actually want is noise that's different from you, not noise that's different from everything. Targeted noise. Off-demographic synthetic activity.
 
@@ -50,13 +50,13 @@ That realization turned the targeting system from a random sampler into what I'm
 
 ### Layer 0: Baseline entropy
 
-At minimum, the engine maintains uniform weights across all content categories — medical, legal, finance, gaming, parenting, agriculture, and so on. Every category is equally likely. This is Layer 0 and it's always active. Even if a user skips all optional configuration, they still get broad synthetic activity.
+At minimum, the engine maintains uniform weights across all content categories: medical, legal, finance, gaming, parenting, agriculture, and so on. Every category is equally likely. This is Layer 0 and it's always active. Even if a user skips all optional configuration, they still get broad synthetic activity.
 
 ### Layer 1: Self-report
 
 Users can optionally tell the app their rough demographic profile: age range, profession, region, general interests. The app doesn't need this to work, but if provided, it uses a rule-based distance map to weight the noise away from those demographics. A 25-year-old software engineer gets more synthetic activity in retirement planning, agriculture, and parenting — categories statistically distant from their real profile. Close categories get suppressed. Distant categories get boosted.
 
-The weights are loaded from a JSON asset and applied multiplicatively on top of Layer 0. Critically, the distance map doesn't touch sensitive attributes — race, religion, sexual orientation, political affiliation. That's a hard line in the schema.
+The weights are loaded from a JSON asset and applied multiplicatively on top of Layer 0. Critically, the distance map doesn't touch sensitive attributes: race, religion, sexual orientation, political affiliation. That's a hard line in the schema.
 
 ### Layer 2: Adversarial scraping
 
@@ -76,7 +76,7 @@ All four layers combine multiplicatively, then normalize to a probability distri
 
 ## Open Source
 
-Fauxx is fully open source. The stack is Kotlin + Jetpack Compose + Hilt + Room (SQLCipher for the sensitive tables) + WorkManager. The targeting engine, all seven action modules, the WebView pool, the persona system — it's all there.
+Fauxx is fully open source. The stack is Kotlin + Jetpack Compose + Hilt + Room (SQLCipher for the sensitive tables) + WorkManager. The targeting engine, all seven action modules, the WebView pool, the persona system; it's all there.
 
 The project is early. The scrapers depend on platform UI that will change. The query banks could be deeper. There's no real-world validation yet of how effectively the noise degrades downstream profiles which is really the most important open question.
 
