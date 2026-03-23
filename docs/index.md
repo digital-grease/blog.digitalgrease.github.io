@@ -56,26 +56,16 @@ hide:
 
 ---
 
-## Blog Posts
+<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;" markdown>
 
-<div class="grid cards" markdown>
+**[:material-skull-crossbones: Hacking →](/posts/category/hacking/){ .md-button .md-button--primary }**
 
--   **[Welcome to The Forge](/welcome-to-digital-grease/)**
-
-    ---
-
-    The inaugural post — what this blog is about, what to expect, and the philosophy behind it.
-
-    *Nov 2025 · digitalgrease*
+**[:material-hammer-wrench: Making →](/posts/category/making/){ .md-button }**
 
 </div>
 
-Explore posts by [tag](/tags/) or browse the [archive](/archive/2025/) to find specific content.
-
----
-
-<div style="text-align:center" markdown>
-**[Explore the Blog →](/posts/){ .md-button .md-button--primary }**
+<div style="text-align:center; margin-top: 0.5rem;" markdown>
+[All Posts](/posts/) · [Tags](/tags/) · [Archive](/posts/archive/2025/)
 </div>
 
 <div class="ember-container">

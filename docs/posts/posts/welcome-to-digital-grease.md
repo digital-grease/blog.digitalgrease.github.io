@@ -1,10 +1,11 @@
 ---
 date: 2025-11-14
+slug: welcome-to-digital-grease
 authors:
   - digitalgrease
 categories:
+  - Making
   - General
-  - Meta
 tags:
   - welcome
   - introduction

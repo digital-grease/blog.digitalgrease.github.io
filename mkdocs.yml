@@ -58,7 +58,6 @@ plugins:
       lang: en
   - blog:
       blog_dir: posts
-      post_dir: .
       post_date_format: medium
       post_url_format: "{slug}"
       archive: true

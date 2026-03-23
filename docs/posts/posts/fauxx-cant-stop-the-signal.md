@@ -1,8 +1,10 @@
 ---
 date: 2026-03-22
+slug: fauxx-cant-stop-the-signal
 authors:
   - digitalgrease
 categories:
+  - Hacking
   - Privacy
   - Android
   - Projects
