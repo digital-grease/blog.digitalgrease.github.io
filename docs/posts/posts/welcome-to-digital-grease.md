@@ -1,6 +1,6 @@
 ---
 date: 2025-11-14
-slug: welcome-to-digital-grease
+slug: welcome-to-the-forge
 authors:
   - digitalgrease
 categories:
@@ -13,7 +13,7 @@ tags:
 comments: false
 ---
 
-# Welcome to Digital Grease Blog
+# Welcome to The Forge
 
 Welcome to the inaugural post of whatever this blog thing is gonna be! This space is where I'll explore both tech stuff, farm stuff, and everything in between as I progress in both professional prowess, and solarpunk efficiency.
 

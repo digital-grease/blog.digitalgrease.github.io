@@ -56,7 +56,7 @@ hide:
 
 ---
 
-<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;" markdown>
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;" markdown>
 
 **[:material-skull-crossbones: Hacking →](/posts/category/hacking/){ .md-button .md-button--primary }**
 
