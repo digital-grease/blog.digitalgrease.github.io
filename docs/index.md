@@ -11,7 +11,7 @@ hide:
 
 !!! tip "Making, Breaking, Learning, Fixing"
 
-    Dive into the digital underground where security, development, and technology intersect.
+    Dive into the digital underground where the digital and analog intersect.
 
     **Attackers think in graphs, defenders think in lists.**
 
