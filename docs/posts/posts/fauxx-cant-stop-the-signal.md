@@ -4,10 +4,7 @@ slug: fauxx-cant-stop-the-signal
 authors:
   - digitalgrease
 categories:
-  - Hacking
-  - Privacy
-  - Android
-  - Projects
+  - Digital
 tags:
   - fauxx
   - privacy

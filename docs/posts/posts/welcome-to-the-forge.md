@@ -5,8 +5,6 @@ authors:
   - digitalgrease
 categories:
   - Digital
-  - Making
-  - General
 tags:
   - welcome
   - introduction
