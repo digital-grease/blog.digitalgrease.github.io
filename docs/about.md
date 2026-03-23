@@ -8,7 +8,7 @@ title: About
 
 I'm digitalgrease, and welcome to my blog. A blog dedicated to exploring the intersection of cybersecurity, software development, and technology. This is a space for sharing knowledge, documenting research, and contributing to the broader security and development community.
 
-### Who is Digital Grease?
+### Who is digitalgrease?
 
 I don't have to type it again if you read this:
 [digitalgrease.dev/about](https://digitalgrease.dev/about)
