@@ -35,10 +35,12 @@
 /* Make entire grid card clickable */
 .md-typeset .grid.cards > :is(ul, ol) > li {
   position: relative;
+  cursor: pointer;
 }
 
 .md-typeset .grid.cards > :is(ul, ol) > li > p:first-child > a:first-child::after {
   content: '';
+  display: block;
   position: absolute;
   inset: 0;
   z-index: 1;
