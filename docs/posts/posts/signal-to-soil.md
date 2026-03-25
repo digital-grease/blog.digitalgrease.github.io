@@ -70,7 +70,7 @@ The animals came first, chickens, then ducks. Sheep and rabbits are next. The en
 
 Self-sufficiency isn't an ideology here. It's a practical project. We're not trying to disappear from the grid or make some statement. We're just trying to reduce dependency where we can, learn skills that mean something, and feed our family with food we understand.
 
-![Walipini excavation in progress](../../assets/Walipini_hole.jpg)
+![Walipini excavation in progress](../../assets/Walipini_hole_v2.jpg)
 
 We're digging a Walipini, an earth-sheltered greenhouse, a technique developed in the Andes for year-round growing in cold climates. The hole in the photo above is the beginning of something. You dig down below the frost line, use the thermal mass of the earth to regulate temperature, and angle a transparent roof to capture winter sun. Passive solar architecture. Old knowledge. Doesn't need a subscription.
 
