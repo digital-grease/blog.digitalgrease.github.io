@@ -89,3 +89,7 @@ VoIP traffic warrants the same inspection scrutiny as web or email traffic.
 Calls that are unusually long relative to their apparent content, or that originate from endpoints not normally associated with voice, are worth a second look. Frequency analysis of captured RTP payloads can identify tonal patterns inconsistent with speech—speech has formants and prosody; mFSK has fixed-frequency sustained tones. Behavioral detection (call duration anomalies, off-hours calling, unusual destination IPs) is often more tractable than signal analysis at scale.
 
 EVE was built for authorized red team engagements—to demonstrate that this class of channel exists and to give defenders something concrete to test against. The gap it exploits isn't obscure. It's just underexamined.
+
+
+### GH link
+[https://github.com/digital-grease/EVE](https://github.com/digital-grease/EVE)
