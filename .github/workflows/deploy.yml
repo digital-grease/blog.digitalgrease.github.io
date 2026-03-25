@@ -39,6 +39,11 @@ jobs:
       - name: Build site
         run: mkdocs build
 
+      - name: Strip image metadata
+        run: |
+          sudo apt-get install -y --no-install-recommends libimage-exiftool-perl
+          exiftool -all= -overwrite_original -r site/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
