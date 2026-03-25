@@ -22,6 +22,8 @@ That's a meaningful gap. VoIP traffic is high-volume, expected on corporate netw
 
 EVE (Encoded VoIP Exfil) is a tool we built to test that assumption. It transfers arbitrary files between two endpoints by encoding them as mFSK audio and streaming that audio as a legitimate SIP/RTP call. The receiving end decodes the audio back to bytes. From the network's perspective, it looks like a phone call.
 
+<!-- more -->
+
 ## Why audio works
 
 The underlying idea is old: acoustic modems. The difference is that we're not generating audio for physical transmission—we're generating PCM samples that get packetized directly into RTP. The analog transmission artifacts that killed modem speeds over PSTN don't apply here. The audio path is digital end-to-end.
