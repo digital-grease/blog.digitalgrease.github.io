@@ -22,7 +22,7 @@ There's no real defense against this at the collection layer. You can block thir
 
 So the question becomes: if you can't stop them from collecting, can you make what they collect useless?
 
-That's what Fauxx is built to do.
+That's what [Fauxx](https://github.com/digital-grease/fauxx) is built to do.
 
 <!-- more -->
 
