@@ -20,19 +20,19 @@ Most DLP deployments are looking at the wrong thing. They inspect email attachme
 
 That's a meaningful gap. VoIP traffic is high-volume, expected on corporate networks, and encrypted at the transport layer in most modern deployments. Even when it isn't, the assumption is that it's just audio—phone calls. Nobody questions the phone calls.
 
-EVE (Encoded VoIP Exfil) is a tool we built to test that assumption. It transfers arbitrary files between two endpoints by encoding them as mFSK audio and streaming that audio as a legitimate SIP/RTP call. The receiving end decodes the audio back to bytes. From the network's perspective, it looks like a phone call.
+EVE (Encoded VoIP Exfil) is a tool built to test that assumption. It transfers arbitrary files between two endpoints by encoding them as mFSK audio and streaming that audio as a legitimate SIP/RTP call. The receiving end decodes the audio back to bytes. From the network's perspective, it looks like a phone call.
 
 <!-- more -->
 
 ## Why audio works
 
-The underlying idea is old: acoustic modems. The difference is that we're not generating audio for physical transmission—we're generating PCM samples that get packetized directly into RTP. The analog transmission artifacts that killed modem speeds over PSTN don't apply here. The audio path is digital end-to-end.
+The underlying idea is old: acoustic modems. The difference is that this isn't generating audio for physical transmission, it's generating PCM samples that get packetized directly into RTP. The analog transmission artifacts that killed modem speeds over PSTN don't apply here. The audio path is digital end-to-end.
 
 mFSK (multiple Frequency Shift Keying) encodes data as distinct audio tones. With M tones, each symbol carries log₂(M) bits. At 16 tones, a 50-symbol/second transmission carries 200 bits per second—25 bytes/second, roughly 1.5 KB/minute. Slow by any network standard, but fast enough to exfiltrate interesting things: SSH keys, configuration files, small archives.
 
-The constraint we're working within is G.711 narrowband: 8 kHz sample rate, 300–3400 Hz usable frequency range. EVE's default configuration uses 400–1900 Hz for 16 tones at 100 Hz spacing—comfortably within the passband, with room to breathe on both ends.
+The constraint this is working within is G.711 narrowband: 8 kHz sample rate, 300–3400 Hz usable frequency range. EVE's default configuration uses 400–1900 Hz for 16 tones at 100 Hz spacing—comfortably within the passband, with room to breathe on both ends.
 
-One wrinkle: VoIP infrastructure often re-encodes audio. A call might pass through a PBX, a STUN server, a media gateway. μ-law compression (G.711) is lossy, but the loss is predictable—it's 8-bit companding with a well-defined table. Tone detection using Goertzel filters is robust to this; we're doing frequency-domain analysis, not amplitude reconstruction.
+One wrinkle: VoIP infrastructure often re-encodes audio. A call might pass through a PBX, a STUN server, a media gateway. μ-law compression (G.711) is lossy, but the loss is predictable—it's 8-bit companding with a well-defined table. Tone detection using Goertzel filters is robust to this; leaving us with frequency-domain analysis, not amplitude reconstruction.
 
 ## The pipeline
 
