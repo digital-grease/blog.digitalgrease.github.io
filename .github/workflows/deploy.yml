@@ -31,6 +31,10 @@ jobs:
           python-version: '3.x'
           cache: 'pip'
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get install -y --no-install-recommends libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
@@ -43,6 +47,9 @@ jobs:
         run: |
           sudo apt-get install -y --no-install-recommends libimage-exiftool-perl
           exiftool -all= -overwrite_original -r site/
+
+      - name: Optimize images
+        run: python scripts/optimize-images.py site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -56,6 +56,11 @@ theme:
 plugins:
   - search:
       lang: en
+  - social:
+      cards_layout: default
+      cards_layout_options:
+        background_color: "#0a0806"
+        color: "#d4b5a0"
   - blog:
       blog_dir: posts
       post_date_format: medium
@@ -156,5 +161,6 @@ copyright: Copyright &copy; 2025&ndash;2026 Digital Grease
 nav:
   - Home: index.md
   - Blog: posts/
+  - Projects: projects.md
   - Tags: tags.md
   - About: about.md

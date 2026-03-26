@@ -1,3 +1,26 @@
+/* Reading progress bar — CSS-only, scroll-driven */
+@keyframes progress-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.md-content::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--forge-hot), var(--forge-orange), var(--cyber-cyan));
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: progress-grow linear;
+  animation-timeline: scroll();
+  z-index: 999;
+  box-shadow: 0 0 8px var(--forge-orange), 0 0 4px var(--cyber-cyan);
+  pointer-events: none;
+}
+
 /* Additional customizations */
 
 /* Logo styling */
@@ -44,6 +67,69 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+}
+
+/* Post navigation — previous/next */
+.md-post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 204, 204, 0.2);
+}
+
+.md-post-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 102, 0, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  max-width: 45%;
+}
+
+.md-post-nav__link:hover {
+  border-color: var(--forge-orange);
+  box-shadow: 0 0 12px rgba(255, 102, 0, 0.3);
+  background: rgba(255, 102, 0, 0.05);
+}
+
+.md-post-nav__link--next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.md-post-nav__direction {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cyber-cyan);
+}
+
+.md-post-nav__arrow {
+  font-weight: bold;
+}
+
+.md-post-nav__title {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+@media screen and (max-width: 600px) {
+  .md-post-nav {
+    flex-direction: column;
+  }
+
+  .md-post-nav__link {
+    max-width: 100%;
+  }
+
+  .md-post-nav__link--next {
+    text-align: left;
+  }
 }
 
 /* Horizontal rule */
