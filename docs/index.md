@@ -26,20 +26,39 @@ hide:
 
 ## What You'll Find Here
 
-<div class="grid cards" markdown>
-
--   [:material-skull-crossbones:{ .lg .middle } **Digital**](/posts/category/digital/)
-
-    ---
-
-    Security research, the new, the nifty, the things I find and the things I create.
-
--   [:material-fire:{ .lg .middle } **Analog**](/posts/category/analog/)
-
-    ---
-
-    Blacksmithing, metalwork, leatherwork, homesteading, and the slow work of learning to grow and make things by hand.
-
+<div class="category-tiles">
+  <div class="category-group">
+    <a href="/posts/category/digital/" class="category-header category-digital">
+      <span class="category-icon">&#x2620;</span>
+      <span class="category-title">Digital</span>
+    </a>
+    <div class="category-subtiles">
+      <a href="/tags/#engineering" class="subtile subtile-engineering">
+        <span class="subtile-icon">&gt;_</span>
+        <span class="subtile-label">Engineering</span>
+      </a>
+      <a href="/tags/#prose" class="subtile subtile-prose">
+        <span class="subtile-icon">&#x270E;</span>
+        <span class="subtile-label">Prose</span>
+      </a>
+    </div>
+  </div>
+  <div class="category-group">
+    <a href="/posts/category/analog/" class="category-header category-analog">
+      <span class="category-icon">&#x1F525;</span>
+      <span class="category-title">Analog</span>
+    </a>
+    <div class="category-subtiles">
+      <a href="/tags/#crafting" class="subtile subtile-crafting">
+        <span class="subtile-icon">&#x2692;</span>
+        <span class="subtile-label">Crafting</span>
+      </a>
+      <a href="/tags/#prose" class="subtile subtile-prose">
+        <span class="subtile-icon">&#x270E;</span>
+        <span class="subtile-label">Prose</span>
+      </a>
+    </div>
+  </div>
 </div>
 
 <div style="text-align:center; margin-top: 0.5rem;" markdown>

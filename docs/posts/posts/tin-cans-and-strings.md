@@ -11,6 +11,7 @@ tags:
   - covert-channel
   - signal-processing
   - rust
+  - engineering
 comments: true
 ---
 

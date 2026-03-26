@@ -11,6 +11,7 @@ tags:
   - rural
   - self-sufficiency
   - personal
+  - prose
 comments: true
 ---
 

@@ -9,6 +9,7 @@ tags:
   - nostalgia
   - retro-tech
   - culture
+  - prose
 comments: true
 ---
 
