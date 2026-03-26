@@ -1,6 +1,7 @@
 ---
 date: 2025-11-14
 slug: welcome-to-the-forge
+description: The inaugural post — what this blog is about and what to expect.
 authors:
   - digitalgrease
 categories:

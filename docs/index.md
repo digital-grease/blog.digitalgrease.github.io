@@ -62,7 +62,7 @@ hide:
 </div>
 
 <div style="text-align:center; margin-top: 0.5rem;" markdown>
-[All Posts](/posts/) · [Tags](/tags/) · [Archive](/posts/archive/2025/)
+[All Posts](/posts/) · [Tags](/tags/) · [Archive](/posts/archive/2026/)
 </div>
 
 <div class="ember-container">

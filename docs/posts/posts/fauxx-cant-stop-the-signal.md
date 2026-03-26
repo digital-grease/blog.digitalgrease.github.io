@@ -1,6 +1,7 @@
 ---
 date: 2026-03-22
 slug: fauxx-cant-stop-the-signal
+description: If you can't stop ad networks from collecting your data, make what they collect useless. Building Fauxx — an Android tool for behavioral data poisoning.
 authors:
   - digitalgrease
 categories:

@@ -1,6 +1,7 @@
 ---
 date: 2026-03-24
 slug: tin-cans-and-strings
+description: VoIP as a covert data exfiltration channel — encoding files as mFSK audio inside legitimate SIP/RTP calls.
 authors:
   - digitalgrease
 categories:

@@ -1,6 +1,7 @@
 ---
 date: 2026-03-24
 slug: phosphor-and-static
+description: On CRT glow, LAN parties, and the quality of attention we lost when technology stopped being strange enough to be magic.
 authors:
   - digitalgrease
 categories:

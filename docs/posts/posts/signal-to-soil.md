@@ -1,12 +1,14 @@
 ---
 date: 2026-03-24
 slug: signal-to-soil
+description: From rural dial-up to city tech careers to building a forge on the same kind of land I spent my adolescence aching to leave.
 authors:
   - digitalgrease
 categories:
   - Analog
 tags:
   - blacksmithing
+  - crafting
   - farming
   - rural
   - self-sufficiency
