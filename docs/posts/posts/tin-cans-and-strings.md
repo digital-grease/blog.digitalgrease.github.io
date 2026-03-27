@@ -7,12 +7,8 @@ authors:
 categories:
   - Digital
 tags:
-  - red-team
-  - voip
-  - covert-channel
-  - signal-processing
-  - rust
   - engineering
+  - security
 comments: true
 ---
 

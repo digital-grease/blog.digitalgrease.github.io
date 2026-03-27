@@ -1,0 +1,33 @@
+/* Forge Theme — CSS Custom Properties */
+
+/* Load Share Tech Mono for headings/nav/chrome (body uses Inter via MkDocs config) */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* PRIMARY: Forge Fire Colors */
+  --forge-hot: #ff3300;
+  --forge-orange: #ff6600;
+  --forge-yellow: #ffcc66;
+  --forge-white: #fffacd;
+  --forge-red: #cc0000;
+  --forge-amber: #ff9933;
+
+  /* ACCENT: Cyberpunk Colors (secondary) */
+  --cyber-cyan: #00cccc;
+  --cyber-magenta: #cc00cc;
+  --cyber-green: #00cc33;
+
+  /* Forge Dark Tones */
+  --forge-dark: #1a0a00;
+  --forge-darker: #0d0500;
+  --forge-charcoal: #2a1a0a;
+  --forge-soot: #0a0503;
+
+  /* PRIMARY: Forge Glow Effects */
+  --forge-glow: 0 0 10px rgba(255, 102, 0, 0.6), 0 0 20px rgba(255, 51, 0, 0.4), 0 0 30px rgba(255, 51, 0, 0.2);
+  --forge-intense-glow: 0 0 15px rgba(255, 102, 0, 0.8), 0 0 30px rgba(255, 51, 0, 0.6), 0 0 45px rgba(255, 51, 0, 0.4);
+  --heat-glow: 0 0 20px rgba(255, 204, 102, 0.5), 0 0 40px rgba(255, 153, 51, 0.3);
+
+  /* ACCENT: Subtle Cyber Glow (toned down) */
+  --cyber-glow: 0 0 3px rgba(0, 204, 204, 0.3), 0 0 6px rgba(0, 204, 204, 0.2);
+}

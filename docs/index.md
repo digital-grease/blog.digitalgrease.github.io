@@ -49,9 +49,9 @@ hide:
       <span class="category-title">Analog</span>
     </a>
     <div class="category-subtiles">
-      <a href="/tags/#crafting" class="subtile subtile-crafting">
+      <a href="/tags/#homesteading" class="subtile subtile-homesteading">
         <span class="subtile-icon">&#x2692;</span>
-        <span class="subtile-label">Crafting</span>
+        <span class="subtile-label">Homesteading</span>
       </a>
       <a href="/tags/#prose" class="subtile subtile-prose">
         <span class="subtile-icon">&#x270E;</span>

@@ -1,0 +1,33 @@
+{#- Series navigation partial.
+    Renders when page.meta.series is set.
+    Expects:
+      page.meta.series       - Series name (string)
+      page.meta.series_part  - Current part number (int)
+      page.meta.series_parts - List of {title, url} dicts
+-#}
+{% if page.meta.series and page.meta.series_parts %}
+  <nav class="md-series-nav" aria-label="Series navigation">
+    <div class="md-series-nav__header">
+      <span class="md-series-nav__label">Series</span>
+      <span class="md-series-nav__title">{{ page.meta.series }}</span>
+    </div>
+    <ol class="md-series-nav__list">
+      {% for part in page.meta.series_parts %}
+        {% set is_current = loop.index == page.meta.series_part %}
+        <li class="md-series-nav__item{% if is_current %} md-series-nav__item--active{% endif %}">
+          {% if is_current %}
+            <span class="md-series-nav__link md-series-nav__link--current">
+              <span class="md-series-nav__part">{{ loop.index }}.</span>
+              {{ part.title }}
+            </span>
+          {% else %}
+            <a href="{{ part.url }}" class="md-series-nav__link">
+              <span class="md-series-nav__part">{{ loop.index }}.</span>
+              {{ part.title }}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

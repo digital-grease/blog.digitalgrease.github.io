@@ -132,6 +132,79 @@
   }
 }
 
+/* Series navigation */
+.md-series-nav {
+  margin-top: 3rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 204, 204, 0.25);
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(0, 204, 204, 0.06), rgba(0, 204, 204, 0.02));
+}
+
+.md-series-nav__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 204, 204, 0.15);
+}
+
+.md-series-nav__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cyber-cyan);
+  opacity: 0.7;
+}
+
+.md-series-nav__title {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 8px rgba(0, 204, 204, 0.4);
+}
+
+.md-series-nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: none;
+}
+
+.md-series-nav__item {
+  margin-bottom: 0.25rem;
+}
+
+.md-series-nav__link {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  transition: all 0.2s ease;
+}
+
+a.md-series-nav__link:hover {
+  background: rgba(0, 204, 204, 0.08);
+  color: var(--cyber-cyan);
+}
+
+.md-series-nav__link--current {
+  background: rgba(255, 102, 0, 0.1);
+  border-left: 3px solid var(--forge-orange);
+  color: var(--forge-orange);
+  font-weight: 600;
+}
+
+.md-series-nav__part {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85em;
+  opacity: 0.6;
+  margin-right: 0.3rem;
+}
+
 /* Horizontal rule */
 .md-typeset hr {
   border: none;

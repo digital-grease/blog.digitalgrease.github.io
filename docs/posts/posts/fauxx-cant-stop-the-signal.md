@@ -7,12 +7,8 @@ authors:
 categories:
   - Digital
 tags:
-  - fauxx
-  - privacy
-  - ad-tech
-  - android
-  - open-source
   - engineering
+  - privacy
 comments: true
 ---
 

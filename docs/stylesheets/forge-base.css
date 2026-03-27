@@ -1,0 +1,122 @@
+/* Forge Theme — Base: Scheme Overrides, Body, Header, Main Content */
+
+/* Override Material Theme Dark Background */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0a0806;
+  --md-default-fg-color: #d4b5a0;
+  --md-code-bg-color: #0f0a08;
+  --md-code-fg-color: var(--forge-amber);
+  --md-accent-fg-color: var(--cyber-cyan);
+  --md-primary-fg-color: #0a0806;
+}
+
+/* Body Background - Dark Industrial Workshop */
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(255, 102, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(204, 0, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(0, 204, 204, 0.05) 0%, transparent 50%),
+    linear-gradient(
+      180deg,
+      #0a0806 0%,
+      #0f0a08 20%,
+      #0a0806 50%,
+      #150e0a 80%,
+      #1a0f0a 100%
+    );
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Forge Floor Glow - Stronger */
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(255, 102, 0, 0.25) 0%,
+    rgba(255, 80, 20, 0.15) 25%,
+    rgba(255, 60, 0, 0.08) 50%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header Styling */
+.md-header {
+  background: rgba(10, 8, 6, 0.98);
+  /* backdrop-filter removed for mobile - creates containing block */
+  border-bottom: 2px solid rgba(0, 204, 204, 0.4);
+  box-shadow:
+    0 0 30px rgba(0, 204, 204, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.8),
+    inset 0 -1px 0 rgba(0, 204, 204, 0.3);
+}
+
+/* Desktop-only: backdrop-filter for header */
+@media screen and (min-width: 76.25em) {
+  .md-header {
+    backdrop-filter: blur(15px);
+  }
+}
+
+.md-header__title {
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  text-shadow:
+    0 0 10px rgba(0, 204, 204, 0.8),
+    0 0 20px rgba(0, 204, 204, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Navigation Links */
+.md-tabs__link {
+  color: var(--forge-amber);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.md-tabs__link:hover {
+  color: var(--forge-yellow);
+  text-shadow: var(--heat-glow);
+}
+
+.md-tabs__link--active {
+  color: var(--forge-orange);
+  border-bottom: 2px solid var(--forge-orange);
+  box-shadow: 0 2px 10px rgba(255, 102, 0, 0.4);
+}
+
+/* Main Content Area */
+.md-content {
+  background: transparent;
+}
+
+.md-main__inner {
+  background: rgba(10, 8, 6, 0.85);
+  /* backdrop-filter removed for mobile - creates containing block */
+  border: 1px solid rgba(0, 204, 204, 0.2);
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(255, 102, 0, 0.15),
+    inset 0 0 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(0, 204, 204, 0.1);
+}
+
+/* Desktop-only: backdrop-filter for main content */
+@media screen and (min-width: 76.25em) {
+  .md-main__inner {
+    backdrop-filter: blur(8px);
+  }
+}

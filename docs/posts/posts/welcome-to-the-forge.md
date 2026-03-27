@@ -7,9 +7,6 @@ authors:
 categories:
   - Digital
 tags:
-  - welcome
-  - introduction
-  - blog
   - prose
 comments: false
 ---

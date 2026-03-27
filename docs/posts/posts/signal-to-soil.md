@@ -7,13 +7,9 @@ authors:
 categories:
   - Analog
 tags:
-  - blacksmithing
-  - crafting
-  - farming
-  - rural
-  - self-sufficiency
-  - personal
   - prose
+  - homesteading
+  - blacksmithing
 comments: true
 ---
 

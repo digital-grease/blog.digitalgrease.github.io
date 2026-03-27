@@ -134,6 +134,7 @@
       {% block content %}
         {% include "partials/content.html" %}
       {% endblock %}
+      {% include "partials/series-nav.html" %}
       {% if page.previous_page or page.next_page %}
         <nav class="md-post-nav" aria-label="Post navigation">
           {% if page.previous_page %}

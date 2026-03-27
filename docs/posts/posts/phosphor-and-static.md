@@ -7,10 +7,9 @@ authors:
 categories:
   - Digital
 tags:
-  - nostalgia
+  - prose
   - retro-tech
   - culture
-  - prose
 comments: true
 ---
 

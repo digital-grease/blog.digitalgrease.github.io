@@ -49,7 +49,7 @@ theme:
 
   # Fonts
   font:
-    text: Share Tech Mono
+    text: Inter
     code: Fira Code
 
 # Plugins
@@ -80,7 +80,6 @@ plugins:
       pagination: true
       pagination_per_page: 10
   - tags:
-      tags_file: tags.md
   - rss:
       match_path: ".*-.*"
       date_from_meta:
@@ -128,8 +127,16 @@ markdown_extensions:
 
 # Additional CSS
 extra_css:
+  - stylesheets/forge-variables.css
+  - stylesheets/forge-base.css
+  - stylesheets/forge-typography.css
+  - stylesheets/forge-components.css
+  - stylesheets/forge-navigation.css
+  - stylesheets/forge-effects.css
+  - stylesheets/forge-home.css
+  - stylesheets/forge-light.css
+  - stylesheets/forge-mobile.css
   - stylesheets/extra.css
-  - stylesheets/cyberpunk.css
 
 # Extra Configuration
 extra:
@@ -160,7 +167,7 @@ copyright: Copyright &copy; 2025&ndash;2026 Digital Grease
 # Navigation
 nav:
   - Home: index.md
-  - Blog: posts/
+  - Blog: posts/index.md
   - Projects: projects.md
   - Tags: tags.md
   - About: about.md

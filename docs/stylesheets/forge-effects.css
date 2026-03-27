@@ -1,0 +1,85 @@
+/* Forge Theme — Atmospheric Effects: Scanlines, Vignette, Pulse, Glitch */
+
+/* Atmospheric Effects */
+@keyframes scanline-drift {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 50px 50px; }
+}
+
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.04; }
+}
+
+@keyframes content-glow {
+  0%, 100% { opacity: 0.98; }
+  50% { opacity: 1; }
+}
+
+/* Desktop-only: position for .md-main */
+@media screen and (min-width: 76.25em) {
+  .md-main {
+    position: relative;
+  }
+}
+
+/* Subtle Scanline Overlay */
+.md-main::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 204, 204, 0.015) 0px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanline-drift 20s ease-in-out infinite, ambient-pulse 8s ease-in-out infinite;
+}
+
+/* Dark Vignette */
+.md-main::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.4) 85%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Subtle Content Pulse */
+.md-content__inner {
+  animation: content-glow 6s ease-in-out infinite;
+}
+
+/* Subtle Cyber Glow on Text */
+.md-typeset {
+  text-shadow: 0 0 1px rgba(0, 204, 204, 0.1);
+}
+
+/* Digital Glitch on Hover */
+@keyframes cyber-glitch {
+  0%, 100% { transform: translate(0); filter: blur(0px); }
+  25% { transform: translate(-0.5px, 0.5px); }
+  50% { transform: translate(0.5px, -0.5px); }
+  75% { transform: translate(-0.5px, -0.5px); }
+}
+
+.md-typeset h1:hover,
+.md-typeset h2:hover {
+  animation: cyber-glitch 0.3s ease-in-out;
+}
