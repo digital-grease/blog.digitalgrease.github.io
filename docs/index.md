@@ -62,7 +62,7 @@ hide:
 </div>
 
 <div class="forge-lily-divider">
-  <img src="assets/svglily.png" alt="" class="forge-lily-img">
+  <img src="assets/clearlily.png" alt="" class="forge-lily-img">
 </div>
 
 ## Bits and Bellows
