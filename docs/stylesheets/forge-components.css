@@ -1,4 +1,4 @@
-/* Forge Theme — Components: Buttons, Search, Cards, Tags, Admonitions, Footer, Scrollbar, Tables */
+/* Forge Theme — Components: Buttons, Search, Cards, Tags, Admonitions, Footer, Scrollbar, Tables, Spider Lily */
 
 /* Buttons - Forged Metal */
 .md-button {
@@ -181,6 +181,86 @@
   box-shadow:
     0 0 20px rgba(0, 204, 204, 0.8),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Spider Lily Motif — Separator & Accent */
+.forge-lily-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  padding: 0 2rem;
+}
+
+.forge-lily-divider::before,
+.forge-lily-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.3), transparent);
+}
+
+.forge-lily-img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+.forge-lily-divider:hover .forge-lily-img {
+  opacity: 1;
+}
+
+.forge-lily-divider:hover::before,
+.forge-lily-divider:hover::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.5), transparent);
+}
+
+/* About page: spider lily background image */
+.forge-lily-bg {
+  position: relative;
+  margin: 0 -1.5rem;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+}
+
+/* The img gets wrapped in a <p> by markdown — collapse it */
+.forge-lily-bg > p:has(.forge-lily-bg-img) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.forge-lily-bg img.forge-lily-bg-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+/* Ensure text content sits above the background image */
+.forge-lily-bg > h2,
+.forge-lily-bg > p:not(:has(.forge-lily-bg-img)),
+.forge-lily-bg > p em {
+  position: relative;
+  z-index: 1;
 }
 
 /* Tables - Data Grid Style */

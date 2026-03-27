@@ -61,6 +61,10 @@ hide:
   </div>
 </div>
 
+<div class="forge-lily-divider">
+  <img src="assets/svglily.png" alt="" class="forge-lily-img">
+</div>
+
 ## Bits and Bellows
 
 <div class="project-tiles">
@@ -97,7 +101,7 @@ hide:
 </div>
 
 <div style="text-align:center; margin-top: 0.5rem;" markdown>
-[All Posts](/posts/) · [Projects](/projects/) · [Tags](/tags/) · [Archive](/posts/archive/)
+[All Posts](/posts/) · [Projects](/projects/) · [Tags](/tags/) · [Archive](/posts/archive/) · [About](/about/)
 </div>
 
 <div class="ember-container">
