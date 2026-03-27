@@ -1,9 +1,9 @@
 ---
-title: Categories
+title: Tags
 ---
 
-# Post Categories
+# Tags
 
-Browse all posts by category to find content that interests you.
+Browse all posts by tag to find content that interests you.
 
 <!-- material/tags -->

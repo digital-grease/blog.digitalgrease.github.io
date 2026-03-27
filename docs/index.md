@@ -33,11 +33,11 @@ hide:
       <span class="category-title">Digital</span>
     </a>
     <div class="category-subtiles">
-      <a href="/tags/#engineering" class="subtile subtile-engineering">
+      <a href="/tags/#tag:engineering" class="subtile subtile-engineering">
         <span class="subtile-icon">&gt;_</span>
         <span class="subtile-label">Engineering</span>
       </a>
-      <a href="/tags/#prose" class="subtile subtile-prose">
+      <a href="/tags/#tag:prose" class="subtile subtile-prose">
         <span class="subtile-icon">&#x270E;</span>
         <span class="subtile-label">Prose</span>
       </a>
@@ -49,11 +49,11 @@ hide:
       <span class="category-title">Analog</span>
     </a>
     <div class="category-subtiles">
-      <a href="/tags/#homesteading" class="subtile subtile-homesteading">
+      <a href="/tags/#tag:homesteading" class="subtile subtile-homesteading">
         <span class="subtile-icon">&#x2692;</span>
         <span class="subtile-label">Homesteading</span>
       </a>
-      <a href="/tags/#prose" class="subtile subtile-prose">
+      <a href="/tags/#tag:prose" class="subtile subtile-prose">
         <span class="subtile-icon">&#x270E;</span>
         <span class="subtile-label">Prose</span>
       </a>
@@ -62,7 +62,7 @@ hide:
 </div>
 
 <div style="text-align:center; margin-top: 0.5rem;" markdown>
-[All Posts](/posts/) · [Tags](/tags/) · [Archive](/posts/archive/2026/)
+[All Posts](/posts/) · [Tags](/tags/) · [Archive](/posts/archive/)
 </div>
 
 <div class="ember-container">
