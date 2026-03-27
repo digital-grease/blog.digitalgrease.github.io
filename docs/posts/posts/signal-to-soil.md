@@ -7,7 +7,7 @@ authors:
 categories:
   - Analog
 tags:
-  - prose
+  - analog-prose
   - homesteading
   - blacksmithing
 comments: true

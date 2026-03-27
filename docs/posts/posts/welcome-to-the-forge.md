@@ -7,7 +7,7 @@ authors:
 categories:
   - Digital
 tags:
-  - prose
+  - digital-prose
 comments: false
 ---
 

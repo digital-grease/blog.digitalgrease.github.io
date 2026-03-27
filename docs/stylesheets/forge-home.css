@@ -397,9 +397,150 @@
   color: var(--forge-amber);
 }
 
+/* ==================================
+   PROJECT TILES (Front Page)
+   ================================== */
+
+.project-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.project-group {
+  background: rgba(10, 8, 6, 0.8);
+  border: 1px solid rgba(255, 102, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-group:hover {
+  border-color: var(--forge-orange);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.15);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--forge-orange);
+  margin-bottom: 0.75rem;
+}
+
+.project-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.project-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 102, 0, 0.15);
+  border-radius: 6px;
+  background: rgba(26, 10, 0, 0.5);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: var(--cyber-cyan);
+  background: rgba(0, 204, 204, 0.08);
+  box-shadow: 0 0 12px rgba(0, 204, 204, 0.2);
+  transform: translateY(-2px);
+}
+
+.project-card-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.project-card-name {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.project-card:hover .project-card-name {
+  text-shadow: 0 0 8px rgba(0, 204, 204, 0.6);
+}
+
+.project-card-desc {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(212, 181, 160, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.project-card:hover .project-card-desc {
+  color: rgba(212, 181, 160, 0.9);
+}
+
+/* Analog projects — warm accent */
+.project-analog .project-header {
+  color: var(--forge-amber);
+}
+
+.project-analog .project-card-name {
+  color: var(--forge-amber);
+}
+
+.project-analog .project-card:hover {
+  border-color: var(--forge-amber);
+  background: rgba(255, 153, 51, 0.08);
+  box-shadow: 0 0 12px rgba(255, 153, 51, 0.2);
+}
+
+.project-analog .project-card:hover .project-card-name {
+  text-shadow: 0 0 8px rgba(255, 153, 51, 0.6);
+}
+
+/* Placeholder card styling */
+.project-card-placeholder {
+  cursor: default;
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+.project-card-placeholder:hover {
+  transform: none;
+  border-color: rgba(255, 153, 51, 0.3);
+  background: rgba(26, 10, 0, 0.5);
+  box-shadow: none;
+}
+
+.project-card-placeholder .project-card-name {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+
 /* Stack tiles on small screens */
 @media screen and (max-width: 480px) {
-  .category-tiles {
+  .category-tiles,
+  .project-tiles {
     grid-template-columns: 1fr;
   }
 }
