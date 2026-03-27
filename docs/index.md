@@ -11,9 +11,7 @@ hide:
 
 !!! tip "Making, Breaking, Learning, Fixing"
 
-    Dive into the digital underground where the digital and analog intersect.
-
-    **Attackers think in graphs, defenders think in lists.**
+    Notes from the overlap between servers and steel, code and craft — chasing a clean signal in the noise.
 
 </div>
 
@@ -42,6 +40,7 @@ hide:
         <span class="subtile-label">Prose</span>
       </a>
     </div>
+    <div class="category-tagline">Attackers think in graphs, defenders think in lists.</div>
   </div>
   <div class="category-group">
     <a href="/posts/category/analog/" class="category-header category-analog">
@@ -58,6 +57,7 @@ hide:
         <span class="subtile-label">Prose</span>
       </a>
     </div>
+    <div class="category-tagline">Ask the steel politely. The hammer and anvil are listening.</div>
   </div>
 </div>
 

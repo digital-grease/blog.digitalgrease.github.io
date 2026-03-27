@@ -397,6 +397,18 @@
   color: var(--forge-amber);
 }
 
+/* Category tagline — one-liner under subtiles */
+.category-tagline {
+  margin-top: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(212, 181, 160, 0.55);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  text-align: center;
+}
+
 /* ==================================
    PROJECT TILES (Front Page)
    ================================== */
