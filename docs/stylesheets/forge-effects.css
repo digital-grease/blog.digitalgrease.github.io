@@ -66,20 +66,27 @@
   animation: content-glow 6s ease-in-out infinite;
 }
 
-/* Subtle Cyber Glow on Text */
-.md-typeset {
-  text-shadow: 0 0 1px rgba(0, 204, 204, 0.1);
-}
+/* Reduced motion: kill all atmospherics + animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
 
-/* Digital Glitch on Hover */
-@keyframes cyber-glitch {
-  0%, 100% { transform: translate(0); filter: blur(0px); }
-  25% { transform: translate(-0.5px, 0.5px); }
-  50% { transform: translate(0.5px, -0.5px); }
-  75% { transform: translate(-0.5px, -0.5px); }
-}
+  .md-main::before,
+  .ember-container,
+  .ember,
+  .forge-scanline,
+  .forge-overlay {
+    display: none !important;
+  }
 
-.md-typeset h1:hover,
-.md-typeset h2:hover {
-  animation: cyber-glitch 0.3s ease-in-out;
+  .md-content__inner,
+  .forge-image {
+    animation: none !important;
+    filter: none !important;
+  }
 }

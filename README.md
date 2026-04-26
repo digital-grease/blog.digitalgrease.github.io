@@ -54,23 +54,26 @@ The built site will be in the `site/` directory.
 
 ## Writing Blog Posts
 
-Blog posts are located in `docs/posts/` and use the following format:
+Blog posts live in `docs/posts/posts/` (the double-nesting is the MkDocs blog plugin's `blog_dir: posts` convention) and use the following format:
 
 ```markdown
 ---
-date: 2025-11-14
+date: 2026-01-15
+slug: post-slug-for-url
+description: One-line summary used for SEO, social cards, and the blog index excerpt.
 authors:
   - digitalgrease
 categories:
-  - Category Name
+  - Digital            # or Analog — pick one (the world the post belongs to)
 tags:
-  - tag1
-  - tag2
+  - engineering        # topic only — see CONTRIBUTING.md for the canonical tag glossary
+  - security
+comments: true         # set false to disable Giscus comments on this post
 ---
 
 # Post Title
 
-Introduction paragraph...
+Introduction paragraph that becomes the excerpt on the blog index...
 
 <!-- more -->
 
@@ -79,10 +82,10 @@ Main content goes here...
 
 ### Post Guidelines
 
-- Place posts in `docs/posts/`
+- Place posts in `docs/posts/posts/`
 - Use the YAML frontmatter shown above
 - Add `<!-- more -->` to create an excerpt for the blog index
-- Use meaningful categories and tags
+- Pick exactly one of `Digital` or `Analog` for the category; tags are topic-only
 - Include code examples with proper syntax highlighting
 
 ## Project Structure
@@ -93,15 +96,22 @@ Main content goes here...
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions deployment
 ├── docs/
-│   ├── posts/                  # Blog posts
-│   ├── stylesheets/            # Custom CSS
-│   ├── javascripts/            # Custom JS
+│   ├── posts/
+│   │   ├── index.md            # Blog landing page
+│   │   └── posts/              # Actual post markdown files
+│   ├── stylesheets/            # Custom CSS (forge-*.css)
 │   ├── assets/                 # Images, icons, etc.
+│   ├── tags/                   # Per-tag landing pages
 │   ├── .authors.yml            # Author information
 │   ├── index.md                # Homepage
 │   ├── about.md                # About page
-│   └── tags.md                 # Tags/categories page
+│   ├── projects.md             # Projects index
+│   ├── tags.md                 # All-tags page
+│   └── 404.md                  # Not-found page
 ├── overrides/                  # Theme overrides
+│   ├── main.html               # Adds preconnect + Share Tech Mono font
+│   ├── blog-post.html          # Adds previous/next post navigation
+│   └── partials/               # Header, comments, series-nav
 ├── mkdocs.yml                  # MkDocs configuration
 ├── requirements.txt            # Python dependencies
 └── README.md                   # This file
@@ -111,16 +121,18 @@ Main content goes here...
 
 ### Theme Colors
 
-Edit `docs/stylesheets/cyberpunk.css` to customize the cyberpunk color scheme:
+Theme tokens live in `docs/stylesheets/forge-variables.css`. The stylesheet stack is split by concern:
 
-```css
-:root {
-  --cyber-cyan: #00ffff;
-  --cyber-magenta: #ff00ff;
-  --cyber-green: #00ff41;
-  /* Add more custom colors */
-}
-```
+- `forge-variables.css` — color tokens, glow shadows
+- `forge-base.css` — body, header, main content backgrounds
+- `forge-typography.css` — headings, links, code
+- `forge-components.css` — buttons, search, articles, tags, admonitions, footer
+- `forge-navigation.css` — sidebar and nav
+- `forge-effects.css` — atmospheric overlays + `prefers-reduced-motion` block
+- `forge-home.css` — home-page-specific (hero, embers, category tiles, project tiles)
+- `forge-light.css` — light-mode overrides
+- `forge-mobile.css` — responsive breakpoints
+- `extra.css` — small utilities (reading-progress bar, post-nav, series-nav)
 
 ### Configuration
 

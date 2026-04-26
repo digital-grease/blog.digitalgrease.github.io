@@ -1,7 +1,6 @@
 /* Forge Theme — CSS Custom Properties */
 
-/* Load Share Tech Mono for headings/nav/chrome (body uses Inter via MkDocs config) */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+/* Share Tech Mono is loaded via overrides/main.html `extrahead` block (preconnect + non-blocking <link>). */
 
 :root {
   /* PRIMARY: Forge Fire Colors */

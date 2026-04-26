@@ -168,6 +168,8 @@ copyright: Copyright &copy; 2025&ndash;2026 Digital Grease
 # Navigation
 nav:
   - Home: index.md
+  - Digital: digital.md
+  - Analog: analog.md
   - Blog: posts/index.md
   - Projects: projects.md
   - Tags: tags.md

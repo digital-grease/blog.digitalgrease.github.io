@@ -6,20 +6,21 @@ Thank you for your interest in contributing! Here are some guidelines to help yo
 
 ### Post Format
 
-All blog posts should be placed in `docs/posts/` with the following format:
+All blog posts go in `docs/posts/posts/` (the MkDocs blog plugin sets `blog_dir: posts`, which is why the directory nests). Use this frontmatter:
 
 ```markdown
 ---
 date: YYYY-MM-DD
+slug: url-slug
+description: One-line summary used for SEO, social cards, and the blog index excerpt.
 authors:
   - digitalgrease
 categories:
-  - Category1
-  - Category2
+  - Digital            # or Analog (pick one — categories carry the medium dichotomy)
 tags:
-  - tag1
-  - tag2
-  - tag3
+  - engineering        # topic-only tags from the canonical set below
+  - security
+comments: true         # set false to disable Giscus comments
 ---
 
 # Post Title
@@ -32,6 +33,27 @@ Brief introduction that will appear in the post preview...
 
 The rest of your post goes here...
 ```
+
+### Tag Glossary
+
+The Digital ↔ Analog dichotomy is the spine of the site and is expressed deliberately in **both** layers:
+
+- **Categories** (`Digital` / `Analog`) — pick exactly one. Drives the auto-generated `/posts/category/<world>/` pages and the per-post DIGITAL/ANALOG pill.
+- **Prose tags** (`digital-prose` / `analog-prose`) — keep the medium-specific prose distinction; `/tags/prose/` is the merged cross-cutting view.
+
+Canonical topic tags:
+
+- `digital-prose` — essays, reflection, culture, retro-tech (Digital side)
+- `analog-prose` — essays, reflection, land, craft (Analog side)
+- `engineering` — software/systems write-ups, tooling, architecture
+- `security` — offensive/defensive security, vulnerabilities, threat models
+- `ai` — LLMs, ML systems, model behavior
+- `privacy` — surveillance, anti-tracking, data minimization
+- `transparency` — public audits, accountability tooling
+- `homesteading` — land work, animals, infrastructure
+- `blacksmithing` — forge, steel, metalwork
+
+New tags are fine — singletons today may recur as the archive grows. Don't aggressively merge low-frequency tags into broader ones; let the taxonomy reflect what was actually written about.
 
 ### Style Guidelines
 

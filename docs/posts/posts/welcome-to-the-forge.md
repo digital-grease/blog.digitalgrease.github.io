@@ -21,10 +21,10 @@ Welcome to the inaugural post of whatever this blog thing is gonna be! This spac
 
 The content here will focus on:
 
-Tech stuff
-Farm stuff
-Blacksmith stuff
-life stuff
+- Tech stuff
+- Farm stuff
+- Blacksmith stuff
+- Life stuff
 
 ## Get Involved
 

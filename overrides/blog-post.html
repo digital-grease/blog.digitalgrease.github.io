@@ -131,6 +131,35 @@
       </div>
     </div>
     <article class="md-content__inner md-typeset">
+      {% if page.categories or page.config.date.created %}
+        <div class="forge-post-header">
+          {% if page.categories %}
+            {% for category in page.categories %}
+              {% set cat_slug = category.title | lower %}
+              <a href="{{ category.url | url }}" class="forge-post-pill forge-post-pill--{{ cat_slug }}">
+                {%- if cat_slug == "digital" %}<span class="forge-post-pill__icon">&#x2620;</span>
+                {%- elif cat_slug == "analog" %}<span class="forge-post-pill__icon">&#x1F525;</span>
+                {%- endif -%}
+                <span class="forge-post-pill__label">{{ category.title }}</span>
+              </a>
+            {% endfor %}
+          {% endif %}
+          {% if page.config.date.created %}
+            <time class="forge-post-date" datetime="{{ page.config.date.created }}">
+              {{ page.config.date.created | date }}
+            </time>
+          {% endif %}
+          {% if page.config.readtime %}
+            <span class="forge-post-readtime">
+              {%- if page.config.readtime == 1 -%}
+                {{ lang.t("readtime.one") }}
+              {%- else -%}
+                {{ lang.t("readtime.other") | replace("#", page.config.readtime) }}
+              {%- endif -%}
+            </span>
+          {% endif %}
+        </div>
+      {% endif %}
       {% block content %}
         {% include "partials/content.html" %}
       {% endblock %}

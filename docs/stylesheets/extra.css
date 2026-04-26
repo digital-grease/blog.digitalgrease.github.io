@@ -205,6 +205,98 @@ a.md-series-nav__link:hover {
   margin-right: 0.3rem;
 }
 
+/* ============================================================
+   POST HEADER STRIP — DIGITAL/ANALOG pill + date + readtime
+   Co-located visible reinforcement of the dichotomy.
+   ============================================================ */
+.forge-post-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 204, 204, 0.15);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.forge-post-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  text-decoration: none !important;
+  border: 1px solid currentColor;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.forge-post-pill__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.forge-post-pill__label {
+  font-weight: 700;
+}
+
+.forge-post-pill--digital {
+  color: var(--cyber-cyan);
+  background: rgba(0, 204, 204, 0.08);
+  box-shadow: 0 0 8px rgba(0, 204, 204, 0.2);
+}
+
+.forge-post-pill--digital:hover {
+  background: rgba(0, 204, 204, 0.15);
+  box-shadow: 0 0 12px rgba(0, 204, 204, 0.4);
+}
+
+.forge-post-pill--analog {
+  color: var(--forge-amber);
+  background: rgba(255, 153, 51, 0.08);
+  box-shadow: 0 0 8px rgba(255, 153, 51, 0.2);
+}
+
+.forge-post-pill--analog:hover {
+  background: rgba(255, 153, 51, 0.15);
+  box-shadow: 0 0 12px rgba(255, 153, 51, 0.4);
+}
+
+.forge-post-date,
+.forge-post-readtime {
+  color: rgba(212, 181, 160, 0.7);
+}
+
+.forge-post-readtime::before {
+  content: "·";
+  margin-right: 0.5rem;
+  opacity: 0.5;
+}
+
+[data-md-color-scheme="default"] .forge-post-header {
+  border-bottom-color: rgba(255, 102, 0, 0.2);
+}
+
+[data-md-color-scheme="default"] .forge-post-pill--digital {
+  color: #007a7a;
+  background: rgba(0, 122, 122, 0.06);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="default"] .forge-post-pill--analog {
+  color: #cc5500;
+  background: rgba(204, 85, 0, 0.06);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="default"] .forge-post-date,
+[data-md-color-scheme="default"] .forge-post-readtime {
+  color: #5a3000;
+}
+
 /* Horizontal rule */
 .md-typeset hr {
   border: none;
@@ -212,4 +304,111 @@ a.md-series-nav__link:hover {
   background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
   box-shadow: 0 0 10px var(--cyber-cyan);
   margin: 2rem 0;
+}
+
+/* ============================================================
+   PRINT STYLES — neutralize cyberpunk for paper
+   ============================================================ */
+@media print {
+  body,
+  body[data-md-color-scheme="slate"],
+  body[data-md-color-scheme="default"] {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  body::before,
+  .md-main::before,
+  .md-main::after,
+  .ember-container,
+  .forge-overlay,
+  .forge-scanline,
+  .md-content::before {
+    display: none !important;
+  }
+
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer,
+  .md-search,
+  .md-content__button,
+  .md-post-nav {
+    display: none !important;
+  }
+
+  .md-main__inner,
+  .md-content__inner,
+  .md-typeset article {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #000 !important;
+  }
+
+  .md-typeset,
+  .md-typeset p,
+  .md-typeset li,
+  .md-typeset blockquote {
+    color: #000 !important;
+    text-shadow: none !important;
+    animation: none !important;
+  }
+
+  .md-typeset h1,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset h4,
+  .md-typeset h5,
+  .md-typeset h6 {
+    color: #000 !important;
+    text-shadow: none !important;
+    border-color: #000 !important;
+    background: none !important;
+    page-break-after: avoid;
+  }
+
+  .md-typeset h1::after {
+    display: none !important;
+  }
+
+  .md-typeset a {
+    color: #000 !important;
+    text-decoration: underline !important;
+    border-bottom: none !important;
+  }
+
+  .md-typeset a[href^="http"]::after {
+    content: " <" attr(href) ">";
+    font-size: 0.85em;
+    font-style: italic;
+    word-break: break-all;
+  }
+
+  .md-typeset code,
+  .md-typeset pre,
+  .md-typeset pre code {
+    background: #f4f4f4 !important;
+    color: #000 !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .md-typeset .admonition,
+  .md-typeset table:not([class]) {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #999 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .md-typeset img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
 }

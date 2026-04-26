@@ -194,3 +194,50 @@ body[data-md-color-scheme="default"]::before {
 [data-md-color-scheme="default"] .md-footer-meta {
   background-color: rgba(0, 0, 0, 0.04);
 }
+
+/* ============================================================
+   Light mode = clean paper. Suppress cyberpunk atmospherics.
+   ============================================================ */
+
+/* Hide the forge-floor body glow */
+body[data-md-color-scheme="default"]::before {
+  display: none;
+}
+
+/* Hide ember particles entirely */
+[data-md-color-scheme="default"] .ember-container,
+[data-md-color-scheme="default"] .ember {
+  display: none;
+}
+
+/* Disable scanline overlay */
+[data-md-color-scheme="default"] .md-main::before {
+  display: none;
+}
+
+/* Lighten the page-edge vignette to a subtle paper edge */
+[data-md-color-scheme="default"] .md-main::after {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.04) 95%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+}
+
+/* Stop the content pulse animation */
+[data-md-color-scheme="default"] .md-content__inner {
+  animation: none;
+}
+
+/* Tone the forge hero to neutral — still imagery, no glow loop */
+[data-md-color-scheme="default"] .forge-image {
+  animation: none;
+  filter: none;
+}
+
+[data-md-color-scheme="default"] .forge-overlay,
+[data-md-color-scheme="default"] .forge-scanline {
+  display: none;
+}

@@ -11,6 +11,13 @@ tags:
   - engineering
   - ai
 comments: true
+series: SPECTER
+series_part: 2
+series_parts:
+  - title: "SPECTER: Hunting Ghosts in the KV Cache"
+    url: /posts/specter-hunting-ghosts-in-the-kv-cache/
+  - title: "Smudge: Stop Trying to Survive the Codec"
+    url: /posts/smudge-stop-trying-to-survive-the-codec/
 ---
 
 # Smudge: Stop Trying to Survive the Codec
