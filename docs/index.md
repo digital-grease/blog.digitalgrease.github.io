@@ -84,6 +84,42 @@ hide:
         <span class="project-card-name">Fauxx</span>
         <span class="project-card-desc">Behavioral data poisoning</span>
       </a>
+      <a href="https://github.com/digital-grease/regscanner" class="project-card">
+        <span class="project-card-icon">&#x1F50D;</span>
+        <span class="project-card-name">regscanner</span>
+        <span class="project-card-desc">Windows registry inventory</span>
+      </a>
+      <a href="https://apps.digitalgrease.dev/obscura" class="project-card">
+        <span class="project-card-icon">&#x1F32B;</span>
+        <span class="project-card-name">Obscura</span>
+        <span class="project-card-desc">Plausible bio-noise</span>
+      </a>
+      <a href="https://apps.digitalgrease.dev/effigy" class="project-card">
+        <span class="project-card-icon">&#x1F464;</span>
+        <span class="project-card-name">Effigy</span>
+        <span class="project-card-desc">Self-OSINT discovery</span>
+      </a>
+      <a href="https://apps.digitalgrease.dev/signet" class="project-card">
+        <span class="project-card-icon">&#x1F511;</span>
+        <span class="project-card-name">Signet</span>
+        <span class="project-card-desc">Cryptographic relationship MFA</span>
+      </a>
+      <div class="project-subgroup-label"><span>// AI</span></div>
+      <a href="/posts/meridian-drift-audit-with-receipts/" class="project-card">
+        <span class="project-card-icon">&#x1F4CA;</span>
+        <span class="project-card-name">Meridian</span>
+        <span class="project-card-desc">Longitudinal LLM drift audit</span>
+      </a>
+      <a href="/posts/specter-hunting-ghosts-in-the-kv-cache/" class="project-card">
+        <span class="project-card-icon">&#x1F47B;</span>
+        <span class="project-card-name">SPECTER</span>
+        <span class="project-card-desc">KV cache perturbation</span>
+      </a>
+      <a href="/posts/smudge-stop-trying-to-survive-the-codec/" class="project-card">
+        <span class="project-card-icon">&#x1F3AD;</span>
+        <span class="project-card-name">smudge</span>
+        <span class="project-card-desc">Adversarial face perturbation</span>
+      </a>
     </div>
   </div>
   <div class="project-group project-analog">
