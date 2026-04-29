@@ -1,3 +1,11 @@
+{#-
+  Overrides Material's partials/comments.html — Giscus comment widget.
+  Renders only when a post sets `comments: true` in its frontmatter.
+  Powered by GitHub Discussions on this repo (data-repo-id / data-category-id
+  are tied to digital-grease/blog.digitalgrease.github.io). On migration:
+  port the conditional Giscus include to whatever per-post hook the new theme
+  exposes; the data-* IDs stay the same.
+-#}
 {% if page.meta.comments %}
 <h2 id="__comments">Comments</h2>
 

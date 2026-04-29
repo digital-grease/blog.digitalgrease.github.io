@@ -1,3 +1,11 @@
+{#-
+  Overrides Material's main.html — only the `extrahead` block.
+  Customizations:
+    - Loads Share Tech Mono from Google Fonts (used by .forge-* CSS for accents).
+    - Injects per-page og:image when `page.meta.image` is set (post hero images).
+    - Adds Apple touch icon (favicon.png).
+  On migration: reimplement these three additions in the new theme's <head> hook.
+-#}
 {% extends "base.html" %}
 
 {% block extrahead %}

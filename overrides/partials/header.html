@@ -1,5 +1,14 @@
 {#-
-  This file was automatically generated - do not edit
+  Overrides Material's partials/header.html.
+  Customizations vs upstream:
+    - Site name (md-header__topic) wraps in an <a href="{{ homepage }}"> so the
+      title is clickable back to the home page (upstream renders it as plain text).
+    - RSS feed button after the repo source: <a href="/feed_rss_created.xml">
+      with a material/rss icon (upstream has no RSS button).
+  Everything else mirrors upstream. On migration: reimplement clickable site
+  name + RSS link in the new theme's header hook.
+  (Note: the original "automatically generated" comment was inherited from the
+  upstream copy — this file IS edited, that comment is now misleading.)
 -#}
 {% set class = "md-header" %}
 {% if "navigation.tabs.sticky" in features %}

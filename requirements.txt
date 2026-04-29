@@ -1,5 +1,6 @@
-# MkDocs and Material Theme
-mkdocs>=1.5.3
+# Build core: ProperDocs (drop-in fork of MkDocs 1.x, avoids the MkDocs 2.0 break)
+# mkdocs-material still pulls in mkdocs as a transitive dep; both coexist.
+properdocs>=1.6.7
 mkdocs-material>=9.5.0
 
 # Blog Plugin (included in Material for MkDocs Insiders or as standalone)

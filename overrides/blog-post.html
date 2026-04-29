@@ -1,6 +1,16 @@
 {#-
-  Blog post template with previous/next navigation.
-  Based on material/templates/blog-post.html
+  Overrides Material's blog-post.html — replaces the entire `container` block.
+  Customizations layered on top of the upstream sidebar/article structure:
+    1. forge-post-header (article top): Digital/Analog category pills with ☠/🔥
+       icons, post date, readtime — all custom-styled via .forge-post-* CSS.
+    2. partials/series-nav.html include: renders when page.meta.series is set,
+       providing inline multi-part series navigation.
+    3. md-post-nav (article bottom): Newer/Older post navigation pair,
+       gated on page.previous_page / page.next_page (only renders when present).
+  The bulk of the block (sidebar, author block, meta nav, references) is a
+  near-verbatim copy of upstream and exists so that the customizations above
+  can be slotted in. On migration: only #1, #2, #3 are unique to this site —
+  everything else is Material's default sidebar that the new theme will provide.
 -#}
 {% extends "main.html" %}
 {% import "partials/nav-item.html" as item with context %}

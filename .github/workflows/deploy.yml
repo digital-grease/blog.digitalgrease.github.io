@@ -1,4 +1,4 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build site
-        run: mkdocs build
+        run: properdocs build
 
       - name: Strip image metadata
         run: |

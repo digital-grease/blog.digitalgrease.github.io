@@ -1,9 +1,11 @@
-{#- Series navigation partial.
-    Renders when page.meta.series is set.
+{#- Series navigation partial — site-specific, no Material upstream equivalent.
+    Renders when page.meta.series is set. Included from blog-post.html.
     Expects:
       page.meta.series       - Series name (string)
       page.meta.series_part  - Current part number (int)
       page.meta.series_parts - List of {title, url} dicts
+    On migration: this is a pure custom feature — port verbatim into the
+    new theme's per-post hook, then ensure the .md-series-nav* CSS comes with it.
 -#}
 {% if page.meta.series and page.meta.series_parts %}
   <nav class="md-series-nav" aria-label="Series navigation">

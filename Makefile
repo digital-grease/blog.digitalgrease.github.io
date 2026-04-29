@@ -10,13 +10,13 @@ install: ## Install dependencies
 	pip install -r requirements.txt
 
 serve: ## Run local development server
-	mkdocs serve
+	properdocs serve
 
 build: ## Build the static site
-	mkdocs build
+	properdocs build
 
 deploy: ## Deploy to GitHub Pages
-	mkdocs gh-deploy --force --clean --verbose
+	properdocs gh-deploy --force --clean --verbose
 
 clean: ## Clean build artifacts
 	rm -rf site/
