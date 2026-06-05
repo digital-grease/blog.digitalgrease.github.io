@@ -38,12 +38,13 @@ jobs:
           sudo apt-get install -y --no-install-recommends libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
 
       - name: Install dependencies
-        # pip 26.1+ supports --uploaded-prior-to with relative durations.
-        # The 7-day cooldown defeats supply-chain attacks during their
-        # narrow detection window. See ../../COOLDOWNS.md.
+        # pip 26.1+ honors --uploaded-prior-to with an ISO 8601 duration (P7D),
+        # NOT a human phrase like "7 days ago" (that errors). The 7-day cooldown
+        # defeats supply-chain attacks during their narrow detection window.
+        # See ../../COOLDOWNS.md.
         run: |
           pip install --upgrade 'pip>=26.1'
-          pip install --uploaded-prior-to "7 days ago" -r requirements.txt
+          pip install --uploaded-prior-to "P7D" -r requirements.txt
 
       - name: Build site
         run: properdocs build
