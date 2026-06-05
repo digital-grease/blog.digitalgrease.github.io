@@ -1,19 +1,20 @@
-name: Deploy site to GitHub Pages
+name: Build and publish deploy artifact
+
+# Pull model: CI builds and publishes a tarball to a rolling 'deploy' release
+# using the ephemeral GITHUB_TOKEN. The VPS pulls + verifies it (see
+# vps-edge/pull/). No SSH key or long-lived secret is stored in GitHub.
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write   # create/update the rolling 'deploy' release
 
-# Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: deploy-artifact
   cancel-in-progress: true
 
 jobs:
@@ -55,18 +56,19 @@ jobs:
       - name: Optimize images
         run: python scripts/optimize-images.py site
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: ./site
+      - name: Package artifact
+        run: |
+          tar -czf "$RUNNER_TEMP/site.tar.gz" -C site .
+          sha256sum "$RUNNER_TEMP/site.tar.gz" | awk '{print $1}' > "$RUNNER_TEMP/site.tar.gz.sha256"
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+      # Publish only on push to main; pull_request runs build as a CI check.
+      - name: Publish to rolling 'deploy' release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view deploy >/dev/null 2>&1 || \
+            gh release create deploy --title "Deploy artifact" \
+              --notes "Rolling build artifact pulled by the VPS." --latest=false
+          gh release upload deploy \
+            "$RUNNER_TEMP/site.tar.gz" "$RUNNER_TEMP/site.tar.gz.sha256" --clobber
